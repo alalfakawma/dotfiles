@@ -1,0 +1,80 @@
+#! /bin/sh
+
+dotfilesFolder=~/.dotfiles
+
+if [ ! -d $dotfilesFolder ]; then
+	# If dotfiles does not exist create it first
+	mkdir $dotfilesFolder 
+fi
+
+# Copy this file to the dotfiles
+# But first create a Scripts folder if it does not exist
+if [ ! -d $dotfilesFolder/Scripts ]; then
+	mkdir $dotfilesFolder/Scripts
+fi
+
+# Copy the file
+if [ ! -f $dotfilesFolder/Scripts/$0 ]; then
+	cp ~/Documents/Scripts/$0 $dotfilesFolder/Scripts/$0
+fi
+
+# Restore using (Tilix) -
+# dconf load /com/gexperts/Tilix/ < tilix.dconf
+# Dump Tilix config
+dconf dump /com/gexperts/Tilix/ > $dotfilesFolder/tilix.dconf
+
+# Vim
+# Copy the file
+if [ ! -f $dotfilesFolder/vimrc ]; then
+	cp ~/.vimrc $dotfilesFolder/vimrc
+fi
+
+# Dunstrc
+# Copy the file
+if [ ! -f $dotfilesFolder/dunstrc ]; then
+	cp ~/.config/dunst/dunstrc $dotfilesFolder/dunstrc
+fi
+
+# i3config
+# Create i3 folder if it doesn't exist
+if [ ! -d $dotfilesFolder/i3 ]; then
+	mkdir $dotfilesFolder/i3
+fi
+
+# Copy the file
+if [ ! -f $dotfilesFolder/i3/config ]; then
+	cp ~/.i3/config $dotfilesFolder/i3/config
+fi
+
+# i3blocks
+# Create i3blocks folder if it doesn't exist
+if [ ! -d $dotfilesFolder/i3/i3blocks ]; then
+	mkdir $dotfilesFolder/i3/i3blocks
+fi
+
+# Copy the file
+if [ ! -f $dotfilesFolder/i3/i3blocks/i3blocks.conf ]; then
+	cp ~/.i3/i3blocks/.i3blocks.conf $dotfilesFolder/i3/i3blocks/i3blocks.conf
+fi
+
+# Fish
+# Create fish folder if it doesn't exist
+if [ ! -d $dotfilesFolder/fish ]; then
+	mkdir $dotfilesFolder/fish
+fi
+
+# Copy the files
+if [ ! -d $dotfilesFolder/fish/conf.d ]; then
+	cp -r ~/.config/fish/conf.d $dotfilesFolder/fish/conf.d
+
+	if [ ! -f $dotfilesFolder/fish/fish_variables ]; then
+		cp ~/.config/fish/fish_variables $dotfilesFolder/fish/fish_variables
+	fi
+fi
+
+# Commit and push
+git --git-dir $dotfilesFolder/.git --work-tree $dotfilesFolder add .
+git --git-dir $dotfilesFolder/.git --work-tree $dotfilesFolder commit -m "Dotfiles Updated at: $(date)"
+git --git-dir $dotfilesFolder/.git --work-tree $dotfilesFolder push
+
+notify-send "Dotfiles Updated!"
