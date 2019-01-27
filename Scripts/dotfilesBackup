@@ -14,9 +14,7 @@ if [ ! -d $dotfilesFolder/Scripts ]; then
 fi
 
 # Copy the file
-if [ ! -f $dotfilesFolder/Scripts/$0 ]; then
-	cp ~/Documents/Scripts/$0 $dotfilesFolder/Scripts/$0
-fi
+cp ~/Documents/Scripts/$0 $dotfilesFolder/Scripts/$0
 
 # Restore using (Tilix) -
 # dconf load /com/gexperts/Tilix/ < tilix.dconf
@@ -25,15 +23,11 @@ dconf dump /com/gexperts/Tilix/ > $dotfilesFolder/tilix.dconf
 
 # Vim
 # Copy the file
-if [ ! -f $dotfilesFolder/vimrc ]; then
-	cp ~/.vimrc $dotfilesFolder/vimrc
-fi
+cp ~/.vimrc $dotfilesFolder/vimrc
 
 # Dunstrc
 # Copy the file
-if [ ! -f $dotfilesFolder/dunstrc ]; then
-	cp ~/.config/dunst/dunstrc $dotfilesFolder/dunstrc
-fi
+cp ~/.config/dunst/dunstrc $dotfilesFolder/dunstrc
 
 # i3config
 # Create i3 folder if it doesn't exist
@@ -42,9 +36,7 @@ if [ ! -d $dotfilesFolder/i3 ]; then
 fi
 
 # Copy the file
-if [ ! -f $dotfilesFolder/i3/config ]; then
-	cp ~/.i3/config $dotfilesFolder/i3/config
-fi
+cp ~/.i3/config $dotfilesFolder/i3/config
 
 # i3blocks
 # Create i3blocks folder if it doesn't exist
@@ -53,9 +45,7 @@ if [ ! -d $dotfilesFolder/i3/i3blocks ]; then
 fi
 
 # Copy the file
-if [ ! -f $dotfilesFolder/i3/i3blocks/i3blocks.conf ]; then
-	cp ~/.i3/i3blocks/.i3blocks.conf $dotfilesFolder/i3/i3blocks/i3blocks.conf
-fi
+cp ~/.i3/i3blocks/.i3blocks.conf $dotfilesFolder/i3/i3blocks/i3blocks.conf
 
 # Fish
 # Create fish folder if it doesn't exist
@@ -66,10 +56,7 @@ fi
 # Copy the files
 if [ ! -d $dotfilesFolder/fish/conf.d ]; then
 	cp -r ~/.config/fish/conf.d $dotfilesFolder/fish/conf.d
-
-	if [ ! -f $dotfilesFolder/fish/fish_variables ]; then
-		cp ~/.config/fish/fish_variables $dotfilesFolder/fish/fish_variables
-	fi
+	cp ~/.config/fish/fish_variables $dotfilesFolder/fish/fish_variables
 fi
 
 # Commit and push
