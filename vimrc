@@ -1,14 +1,17 @@
 " Change settings
 set rnu
 set mouse=a
+set encoding=UTF-8
 set t_Co=256
 syntax enable
 set shiftwidth=4
 set tabstop=4
 set splitright
+set smartindent
 set splitbelow
 set nuw=5
-set tags=.tags,tags;
+set tags=.tags,tags
+set hls
 highlight LineNr term=bold cterm=NONE ctermfg=255 ctermbg=234 gui=NONE guifg=DarkGrey guibg=NONE
 highlight CursorLineNr term=bold cterm=bold ctermbg=234 ctermfg=255 gui=bold guifg=DarkGrey guibg=red
 
@@ -53,7 +56,7 @@ Plug 'tpope/vim-surround'
 call plug#end()
 
 " Set colorscheme
-colorscheme badwolf
+colorscheme jellybeans
 
 " Emmet vim
 let g:user_emmet_leader_key='<Leader>'
@@ -130,8 +133,11 @@ autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 let g:autotagmaxTagsFileSize=10
 
 " Save file
-noremap <Leader>s <Esc>:w<CR>
-inoremap <Leader>s <Esc>:w<CR>
+noremap <Leader>w <Esc>:w<CR>
+inoremap <Leader>w <Esc>:w<CR>
+
+" Quit file
+nnoremap <Leader>q <Esc>:q<CR>
 
 " Open Definition in vertical split
 map <Leader>] :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
@@ -143,3 +149,6 @@ inoremap <C-j> <Esc>:m .+1<CR>==gi
 inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
+
+" Remove search highlight
+nnoremap <C-c> :noh<return><C-c>
