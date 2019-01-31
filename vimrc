@@ -48,10 +48,11 @@ Plug 'letientai299/vim-react-snippets', { 'branch': 'es6' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'flazz/vim-colorschemes'
-Plug 'craigemery/vim-autotag'
+" Plug 'craigemery/vim-autotag'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
+Plug 'jwalton512/vim-blade'
 
 call plug#end()
 
