@@ -4,8 +4,8 @@ set mouse=a
 set encoding=UTF-8
 set t_Co=256
 syntax enable
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 set splitright
 set smartindent
 set splitbelow
@@ -48,7 +48,7 @@ Plug 'letientai299/vim-react-snippets', { 'branch': 'es6' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'flazz/vim-colorschemes'
-" Plug 'craigemery/vim-autotag'
+Plug 'craigemery/vim-autotag'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
@@ -132,6 +132,7 @@ autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 
 " Autotags
 let g:autotagmaxTagsFileSize=10
+let g:autotagTagsFile=".tags"
 
 " Save file
 noremap <Leader>w <Esc>:w<CR>
