@@ -4,8 +4,8 @@ set mouse=a
 set encoding=UTF-8
 set t_Co=256
 syntax enable
-set shiftwidth=2
-set tabstop=2
+set shiftwidth=4
+set tabstop=4
 set splitright
 set smartindent
 set splitbelow
