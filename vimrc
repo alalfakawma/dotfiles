@@ -57,7 +57,7 @@ Plug 'jwalton512/vim-blade'
 call plug#end()
 
 " Set colorscheme
-colorscheme jellybeans
+colorscheme luna-term
 
 " Emmet vim
 let g:user_emmet_leader_key='<Leader>'
