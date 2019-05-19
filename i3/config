@@ -71,6 +71,10 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # focus_follows_mouse no
 
+# Move container between monitors
+bindsym $mod+Shift+greater move container to output right
+bindsym $mod+Shift+less move container to output left
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
