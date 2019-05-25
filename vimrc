@@ -12,6 +12,7 @@ set splitbelow
 set nuw=5
 set tags=.tags,tags
 set hls
+set backupcopy=yes
 highlight LineNr term=bold cterm=NONE ctermfg=255 ctermbg=234 gui=NONE guifg=DarkGrey guibg=NONE
 highlight CursorLineNr term=bold cterm=bold ctermbg=234 ctermfg=255 gui=bold guifg=DarkGrey guibg=red
 
