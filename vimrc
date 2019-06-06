@@ -48,17 +48,17 @@ Plug 'SirVer/ultisnips'
 Plug 'letientai299/vim-react-snippets', { 'branch': 'es6' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'arnaud-lb/vim-php-namespace'
-Plug 'flazz/vim-colorschemes'
 Plug 'craigemery/vim-autotag'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
+Plug 'jaredgorski/spacecamp'
 Plug 'jwalton512/vim-blade'
 
 call plug#end()
 
 " Set colorscheme
-colorscheme luna-term
+colorscheme spacecamp
 
 " Emmet vim
 let g:user_emmet_leader_key='<Leader>'
