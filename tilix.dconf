@@ -2,9 +2,9 @@
 list=['2b7c4080-0ddd-46c5-8f23-563fd3ba789d']
 
 [profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
-foreground-color='#A7A7A7'
+foreground-color='#DBDBDB'
 visible-name='Aseem'
-palette=['#1E1E1E', '#CF6A4C', '#FFFFFFFFFFFF', '#F9EE98', '#7587A6', '#9B859D', '#AFC4DB', '#A7A7A7', '#5F5A60', '#CF6A4C', '#8F9D6A', '#F9EE98', '#7587A6', '#9B859D', '#AFC4DB', '#FFFFFF']
+palette=['#575757', '#FF1B00', '#A5E055', '#FBE74A', '#496487', '#FD5FF1', '#86E9FE', '#CBCCCB', '#262626', '#D51D00', '#A5DF55', '#FBE84A', '#89BEFF', '#C001C1', '#86EAFE', '#DBDBDB']
 cell-width-scale=1.0
 bold-is-bright=true
 badge-color='#AC7EA8'
@@ -21,7 +21,7 @@ use-theme-colors=false
 use-system-font=false
 notify-silence-threshold=0
 cursor-blink-mode='system'
-background-color='#1E1E1E'
+background-color='#000000'
 background-transparency-percent=5
 dim-transparency-percent=23
 

@@ -4,11 +4,14 @@ set mouse=a
 set encoding=UTF-8
 set t_Co=256
 syntax enable
-set shiftwidth=4
-set tabstop=4
 set splitright
 set smartindent
 set splitbelow
+set tabstop=8 
+set softtabstop=0 
+set expandtab 
+set shiftwidth=4 
+set smarttab
 set nuw=5
 set tags=.tags,tags
 set hls
@@ -54,6 +57,7 @@ Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'jaredgorski/spacecamp'
 Plug 'jwalton512/vim-blade'
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
