@@ -22,7 +22,7 @@ use-system-font=false
 notify-silence-threshold=0
 cursor-blink-mode='system'
 background-color='#000000'
-background-transparency-percent=5
+background-transparency-percent=9
 dim-transparency-percent=23
 
 [/]
