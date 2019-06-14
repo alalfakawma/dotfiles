@@ -7,14 +7,14 @@ if [ ! -d $dotfilesFolder ]; then
 	mkdir $dotfilesFolder 
 fi
 
-# Copy this file to the dotfiles
+# Copy all scripts to the dotfiles
 # But first create a Scripts folder if it does not exist
 if [ ! -d $dotfilesFolder/Scripts ]; then
 	mkdir $dotfilesFolder/Scripts
 fi
 
-# Copy the file
-cp ~/Documents/Scripts/$0 $dotfilesFolder/Scripts/$0
+# Copy all scripts
+cp ~/Documents/Scripts/* $dotfilesFolder/Scripts
 
 # Restore using (Tilix) -
 # dconf load /com/gexperts/Tilix/ < tilix.dconf

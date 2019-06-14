@@ -81,6 +81,9 @@ autocmd bufenter * nested if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDT
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
+" Let nerdtree show hidden files
+let NERDTreeShowHidden=1
+
 " Toggle Nerdtree
 map <C-b> :NERDTreeToggle<CR>
 

@@ -1,0 +1,28 @@
+#! /bin/sh
+# List of all options
+options=('1 Laptop(Primary)' '2 External(Primary)' '3 Laptop(Primary) & External' '4 External(Primary) & Laptop')
+
+# Show dmenu list
+selected=$(printf '%s\n' "${options[@]}" | dmenu -i -p "Select display config")
+
+# Run selection
+first=$(echo $selected | awk '{ print $1 }')
+
+if [ $first -eq 1 ]; then
+	xrandr --output eDP1 --primary --auto
+	xrandr --output DP1 --off
+	xinput --set-prop 15 "libinput Natural Scrolling Enabled" 1
+	nitrogen --restore
+	killall dunst; exec notify-send 'Dunst Restarted!'
+elif [ $first -eq 2 ]; then
+	xrandr --output DP1 --primary --auto
+	xrandr --output eDP1 --off
+	nitrogen --restore
+	killall dunst; exec notify-send 'Dunst Restarted!'
+elif [ $first -eq 3 ]; then
+	xrandr --output DP1 --primary --left-of eDP1 --auto 
+	nitrogen --restore
+elif [ $first -eq 4 ]; then
+	xrandr --output eDP1 --primary --right-of DP1 --auto 
+	nitrogen --restore
+fi
