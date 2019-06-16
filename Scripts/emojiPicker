@@ -1,5 +1,7 @@
 #! /bin/sh
 
+# Script inspired by Luke Smith: https://github.com/LukeSmithxyz/voidrice/blob/archi3/.local/bin/i3cmds/dmenuunicode
+# Emojis file courtesy of Luke Smith: https://github.com/LukeSmithxyz/voidrice/blob/archi3/.config/emoji
 # Get emoji and list it out
 if [ -e ~/Documents/Scripts/scriptAssets/emojis ]; then
     chosen=$(grep -v "#" ~/Documents/Scripts/scriptAssets/emojis | dmenu -i -l 5 -fn PragmataPro)
