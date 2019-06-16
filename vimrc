@@ -37,6 +37,7 @@ hi CursorLine cterm=NONE ctermbg=237 ctermfg=NONE guibg=Grey20
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
+Plug 'elzr/vim-json'
 Plug 'mattn/emmet-vim'
 Plug 'posva/vim-vue'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -60,6 +61,7 @@ Plug 'jwalton512/vim-blade'
 Plug 'Yggdroot/indentLine'
 
 call plug#end()
+let g:vim_json_syntax_conceal = 0
 
 " Set colorscheme
 colorscheme spacecamp
