@@ -1,0 +1,12 @@
+#! /bin/sh
+
+# Get emoji and list it out
+if [ -e ~/Documents/Scripts/scriptAssets/emojis ]; then
+    chosen=$(grep -v "#" ~/Documents/Scripts/scriptAssets/emojis | dmenu -i -l 5 -fn PragmataPro)
+fi
+
+[ "$chosen" != "" ] || exit
+
+c=$(echo "$chosen" | sed "s/ .*//")
+echo "$c" | tr -d '\n' | xclip -selection clipboard
+notify-send "'$c' copied to clipboard." &

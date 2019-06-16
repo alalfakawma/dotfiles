@@ -430,3 +430,4 @@ mode "$mode_gaps_outer" {
 # CUSTOM SCRIPTS
 bindsym $mod+F12 exec ~/Documents/Scripts/displayPicker
 bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+bindsym $mod+comma exec ~/Documents/Scripts/emojiPicker
