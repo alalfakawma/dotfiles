@@ -14,7 +14,7 @@ if [ ! -d $dotfilesFolder/Scripts ]; then
 fi
 
 # Copy all scripts
-cp ~/Documents/Scripts/* $dotfilesFolder/Scripts
+cp -r ~/Documents/Scripts/* $dotfilesFolder/Scripts
 
 # Restore using (Tilix) -
 # dconf load /com/gexperts/Tilix/ < tilix.dconf
