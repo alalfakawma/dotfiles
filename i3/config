@@ -196,6 +196,7 @@ assign [class="Pcmanfm"] $ws5
 assign [class="Steam"] $ws4
 assign [class="Typora"] $ws4
 assign [class="Epdfview"] $ws4
+assign [class="Postman"] $ws4
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
