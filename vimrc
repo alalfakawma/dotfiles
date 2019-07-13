@@ -141,7 +141,7 @@ autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
 autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 
 " Autotags
-let g:autotagmaxTagsFileSize=10
+let g:autotagmaxTagsFileSize=10000000
 let g:autotagTagsFile=".tags"
 
 " Save file
