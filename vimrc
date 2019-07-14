@@ -20,8 +20,8 @@ highlight LineNr term=bold cterm=NONE ctermfg=255 ctermbg=234 gui=NONE guifg=Dar
 highlight CursorLineNr term=bold cterm=bold ctermbg=234 ctermfg=255 gui=bold guifg=DarkGrey guibg=red
 
 " Match brackets
-hi MatchParen cterm=bold ctermbg=white ctermfg=black
 
+hi MatchParen cterm=bold ctermbg=white ctermfg=black
 " Set leader key
 " let mapleader = "<,>"
 
@@ -56,15 +56,15 @@ Plug 'craigemery/vim-autotag'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
-Plug 'jaredgorski/spacecamp'
 Plug 'jwalton512/vim-blade'
 Plug 'Yggdroot/indentLine'
+Plug 'tomasiser/vim-code-dark'
 
 call plug#end()
 let g:vim_json_syntax_conceal = 0
 
 " Set colorscheme
-colorscheme spacecamp
+colorscheme codedark
 
 " Emmet vim
 let g:user_emmet_leader_key='<Leader>'
