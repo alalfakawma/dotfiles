@@ -58,7 +58,7 @@ Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'jwalton512/vim-blade'
 Plug 'Yggdroot/indentLine'
-Plug 'tomasiser/vim-code-dark'
+Plug 'alalfakawma/vim-code-dark'
 
 call plug#end()
 let g:vim_json_syntax_conceal = 0
