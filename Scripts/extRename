@@ -1,0 +1,9 @@
+#! /bin/sh
+# Batch rename file extensions in a folder
+# Author: Aseem Lalfakawma
+# Website: alalfakawma.me
+# Github: https://github.com/alalfakawma
+
+for fish in $(ls $1); do
+    echo $fish
+done
