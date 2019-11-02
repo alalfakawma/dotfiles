@@ -202,6 +202,7 @@ assign [class="Steam"] $ws4
 assign [class="Typora"] $ws4
 assign [class="Epdfview"] $ws4
 assign [class="Postman"] $ws4
+assign [class="dota2"] $ws5
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -298,7 +299,7 @@ exec --no-startup-id pamac-tray
 # exec_always --no-startup-id sbxkb
 # exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id xautolock -time 20 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id xinput --set-prop 11  "libinput Natural Scrolling Enabled" 1
