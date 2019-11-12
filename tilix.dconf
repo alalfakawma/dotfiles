@@ -80,8 +80,8 @@ win-view-sidebar='disabled'
 list=['2b7c4080-0ddd-46c5-8f23-563fd3ba789d']
 
 [profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
-background-color='#000000'
-background-transparency-percent=9
+background-color='#1E1E1E'
+background-transparency-percent=0
 badge-color='#AC7EA8'
 badge-color-set=false
 bold-color-set=false
@@ -93,10 +93,10 @@ cursor-colors-set=false
 cursor-shape='block'
 dim-transparency-percent=23
 font='PragmataPro for Powerline 9'
-foreground-color='#DBDBDB'
+foreground-color='#A7A7A7'
 highlight-colors-set=false
 notify-silence-threshold=0
-palette=['#575757', '#FF1B00', '#A5E055', '#FBE74A', '#496487', '#FD5FF1', '#86E9FE', '#CBCCCB', '#262626', '#D51D00', '#A5DF55', '#FBE84A', '#89BEFF', '#C001C1', '#86EAFE', '#DBDBDB']
+palette=['#1E1E1E', '#CF6A4C', '#9999FEFE9E9E', '#F9EE98', '#7587A6', '#9B859D', '#AFC4DB', '#A7A7A7', '#5F5A60', '#CF6A4C', '#8F9D6A', '#F9EE98', '#7587A6', '#9B859D', '#AFC4DB', '#FFFFFF']
 show-scrollbar=false
 use-custom-command=false
 use-system-font=false
