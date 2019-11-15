@@ -59,6 +59,8 @@ Plug 'tpope/vim-surround'
 Plug 'jwalton512/vim-blade'
 Plug 'Yggdroot/indentLine'
 Plug 'alalfakawma/vim-code-dark'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 call plug#end()
 let g:vim_json_syntax_conceal = 0
