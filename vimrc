@@ -61,6 +61,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'alalfakawma/vim-code-dark'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 let g:vim_json_syntax_conceal = 0
