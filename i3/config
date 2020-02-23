@@ -21,7 +21,7 @@ bindsym $mod+n border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font xft:RobotoMono 10
+font xft:Monaco 10
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
@@ -33,7 +33,7 @@ bindsym $mod+Return exec tilix
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id rofi -theme ~/.config/rofi/matheme.rasi -lines 7 -show drun -font "PragmataPro 10"
+bindsym $mod+d exec --no-startup-id rofi -theme ~/.config/rofi/matheme.rasi -lines 7 -show drun -font "Monaco 10"
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -77,8 +77,8 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 # focus_follows_mouse no
 
 # Move container between monitors
-bindsym $mod+Shift+greater move container to output right
-bindsym $mod+Shift+less move container to output left
+bindsym $mod+Shift+greater move workspace to output right
+bindsym $mod+Shift+less move workspace to output left
 
 # change focus
 bindsym $mod+h focus left
@@ -288,9 +288,6 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
-# Lock screen
-bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
