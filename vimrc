@@ -62,6 +62,7 @@ Plug 'alalfakawma/vim-code-dark'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'ryanoasis/vim-devicons'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 call plug#end()
 let g:vim_json_syntax_conceal = 0
@@ -142,6 +143,9 @@ function! IPhpExpandClass()
 endfunction
 autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
 autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+
+" Prettier config
+let g:prettier#config#print_width = 200
 
 " Autotags
 let g:autotagmaxTagsFileSize=10000000
