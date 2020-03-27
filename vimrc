@@ -12,16 +12,62 @@ set softtabstop=0
 set expandtab 
 set shiftwidth=4 
 set smarttab
-set nuw=5
+set nuw=4
 set tags=.tags,tags
 set hls
 set backupcopy=yes
 highlight LineNr term=bold cterm=NONE ctermfg=255 ctermbg=234 gui=NONE guifg=DarkGrey guibg=NONE
 highlight CursorLineNr term=bold cterm=bold ctermbg=234 ctermfg=255 gui=bold guifg=DarkGrey guibg=red
 
-" Match brackets
+" COC Vim Settings
+set cmdheight=2
+set nobackup
+set nowritebackup
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" Documentation
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+" COC Extensions
+let g:coc_global_extensions = [
+    \ 'coc-snippets',
+    \ 'coc-pairs',
+    \ 'coc-prettier',
+    \ 'coc-phpls',
+    \ 'coc-html',
+    \ 'coc-css',
+    \ 'coc-vetur'
+    \ ]
+" Coc perttier run save
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
+" Match brackets
 hi MatchParen cterm=bold ctermbg=white ctermfg=black
+
 " Set leader key
 " let mapleader = "<,>"
 
@@ -41,15 +87,11 @@ Plug 'elzr/vim-json'
 Plug 'mattn/emmet-vim'
 Plug 'posva/vim-vue'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'airblade/vim-gitgutter'
-Plug 'Valloric/YouCompleteMe'
-Plug 'SirVer/ultisnips'
-Plug 'letientai299/vim-react-snippets', { 'branch': 'es6' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'craigemery/vim-autotag'
@@ -58,17 +100,23 @@ Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'jwalton512/vim-blade'
 Plug 'Yggdroot/indentLine'
-Plug 'alalfakawma/vim-code-dark'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'ryanoasis/vim-devicons'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'jacoborus/tender.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 let g:vim_json_syntax_conceal = 0
 
 " Set colorscheme
-colorscheme codedark
+colorscheme tender
+
+" Set Airline Theme
+let g:airline_theme = 'tender'
+let g:airline_powerline_fonts = 1
 
 " Emmet vim
 let g:user_emmet_leader_key='<Leader>'
@@ -95,8 +143,8 @@ map <C-b> :NERDTreeToggle<CR>
 
 " NERDTress File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
- exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
- exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
 
 call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
@@ -116,20 +164,13 @@ call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 " CtrlP Ignore files in gitignore
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
-" Powerline
-set rtp+=/home/aseem/.local/lib/python3.7/site-packages/powerline/bindings/vim/
-set laststatus=2
+" Don't show mode 
 set noshowmode
-
-" UltiSnips
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsExpandTrigger="<c-q>"
 
 " PHP namespace Import files
 function! IPhpInsertUse()
-    call PhpInsertUse()
-    call feedkeys('a',  'n')
+call PhpInsertUse()
+call feedkeys('a',  'n')
 endfunction
 autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
 autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
@@ -138,14 +179,11 @@ let g:php_namespace_sort_after_insert = 1
 
 " PHP namespace Expand class
 function! IPhpExpandClass()
-    call PhpExpandClass()
-    call feedkeys('a', 'n')
+call PhpExpandClass()
+call feedkeys('a', 'n')
 endfunction
 autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
 autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
-
-" Prettier config
-let g:prettier#config#print_width = 200
 
 " Autotags
 let g:autotagmaxTagsFileSize=10000000
