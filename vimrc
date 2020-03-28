@@ -10,6 +10,7 @@ set splitbelow
 set tabstop=8 
 set softtabstop=0 
 set expandtab 
+set shiftround
 set shiftwidth=4 
 set smarttab
 set nuw=4
@@ -62,7 +63,7 @@ let g:coc_global_extensions = [
     \ 'coc-css',
     \ 'coc-vetur'
     \ ]
-" Coc perttier run save
+" Coc prettier run save
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Match brackets
