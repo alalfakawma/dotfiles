@@ -16,10 +16,9 @@ fi
 # Copy all scripts
 cp -r ~/Documents/Scripts/* $dotfilesFolder/Scripts
 
-# Restore using (Tilix) -
-# dconf load /com/gexperts/Tilix/ < tilix.dconf
-# Dump Tilix config
-dconf dump /com/gexperts/Tilix/ > $dotfilesFolder/tilix.dconf
+# Alacritty
+# Copy the file
+cp ~/.config/alacritty/alacritty.yml $dotfilesFolder/alacritty.yml
 
 # Vim
 # Copy the file

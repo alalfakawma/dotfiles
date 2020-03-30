@@ -108,6 +108,8 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'jacoborus/tender.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-dadbod'
+Plug 'kristijanhusak/vim-dadbod-ui'
 
 call plug#end()
 let g:vim_json_syntax_conceal = 0
@@ -211,3 +213,10 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " Remove search highlight
 nnoremap <C-c> :noh<return><C-c>
+ 
+" Dadbod GUI
+let g:db_ui_env_variable_url = 'DB_HOST'
+let g:db_ui_env_variable_name = 'DB_DATABASE'
+
+" For Alacritty terminal
+set ttymouse=sgr
