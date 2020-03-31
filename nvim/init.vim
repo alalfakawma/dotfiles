@@ -5,7 +5,6 @@ endif
 set rnu
 set mouse=a
 set encoding=UTF-8
-set t_Co=256
 syntax enable
 set splitright
 set smartindent
@@ -30,6 +29,8 @@ set nowritebackup
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
+" Coc-snippets expand
+imap <C-q> <Plug>(coc-snippets-expand)
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
@@ -96,14 +97,15 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-commentary'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
 Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'craigemery/vim-autotag'
 Plug 'cakebaker/scss-syntax.vim'
-" Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
-" Plug 'jwalton512/vim-blade'
+Plug 'jwalton512/vim-blade'
 Plug 'Yggdroot/indentLine'
 Plug 'godlygeek/tabular'
 Plug 'ryanoasis/vim-devicons'
@@ -170,6 +172,7 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 
 " Don't show mode 
 set noshowmode
+set noshowcmd
 
 " PHP namespace Import files
 function! IPhpInsertUse()
