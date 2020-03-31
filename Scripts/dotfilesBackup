@@ -20,9 +20,12 @@ cp -r ~/Documents/Scripts/* $dotfilesFolder/Scripts
 # Copy the file
 cp ~/.config/alacritty/alacritty.yml $dotfilesFolder/alacritty.yml
 
-# Vim
+# NeoVim
+if [ ! -d $dotfilesFolder/nvim ]; then
+    mkdir $dotfilesFolder/nvim
+fi
 # Copy the file
-cp ~/.vimrc $dotfilesFolder/vimrc
+cp ~/.config/nvim/init.vim $dotfilesFolder/nvim/init.vim
 
 # Dunstrc
 # Copy the file
