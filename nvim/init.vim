@@ -219,3 +219,6 @@ nnoremap <C-c> :noh<return><C-c>
 
 " For Alacritty terminal
 " set ttymouse=sgr 
+
+" Vim multiple cursors
+let g:multi_cursor_quit_key = '<C-c>'
