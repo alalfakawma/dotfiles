@@ -239,6 +239,8 @@ for_window [window_role="toolbox"] floating enable
 for_window [class="Viewnior"] floating enable
 for_window [class="Spotify"] move to workspace $ws8
 for_window [title="Friends List"] floating enable
+# This is for Python TkInter apps
+for_window [class="Tk"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus

@@ -222,3 +222,7 @@ nnoremap <C-c> :noh<return><C-c>
 
 " Vim multiple cursors
 let g:multi_cursor_quit_key = '<C-c>'
+
+" Move around buffers
+nnoremap <A-h> :bp<return>
+nnoremap <A-l> :bn<return>
