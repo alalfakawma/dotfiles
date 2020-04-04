@@ -370,36 +370,29 @@ mouse:
   # Print all received window events.
   #print_events: false
 
-# Colors (Base16 Default Dark)
+# Colors (Pencil Dark)
 colors:
-  # Default colors
+  # Default Colors
   primary:
-    background: '0x181818'
-    foreground: '0xd8d8d8'
-
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: '#000000'
-    cursor: '#ffffff'
-
+    background: '0x212121'
+    foreground: '0xf1f1f1'
   # Normal colors
   normal:
-    black:   '0x181818'
-    red:     '0xab4642'
-    green:   '0xa1b56c'
-    yellow:  '0xf7ca88'
-    blue:    '0x7cafc2'
-    magenta: '0xba8baf'
-    cyan:    '0x86c1b9'
-    white:   '0xd8d8d8'
-
+    black:   '0x212121'
+    red:     '0xc30771'
+    green:   '0x10a778'
+    yellow:  '0xa89c14'
+    blue:    '0x008ec4'
+    magenta: '0x523c79'
+    cyan:    '0x20a5ba'
+    white:   '0xe0e0e0'
   # Bright colors
   bright:
-    black:   '0x585858'
-    red:     '0xab4642'
-    green:   '0xa1b56c'
-    yellow:  '0xf7ca88'
-    blue:    '0x7cafc2'
-    magenta: '0xba8baf'
-    cyan:    '0x86c1b9'
-    white:   '0xf8f8f8'
+    black:   '0x212121'
+    red:     '0xfb007a'
+    green:   '0x5fd7af'
+    yellow:  '0xf3e430'
+    blue:    '0x20bbfc'
+    magenta: '0x6855de'
+    cyan:    '0x4fb8cc'
+    white:   '0xf1f1f1'

@@ -110,18 +110,20 @@ Plug 'Yggdroot/indentLine'
 Plug 'godlygeek/tabular'
 Plug 'ryanoasis/vim-devicons'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'jacoborus/tender.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ayu-theme/ayu-vim'
 
 call plug#end()
 let g:vim_json_syntax_conceal = 0
 
+set termguicolors
+let ayucolor="mirage"
+
 " Set colorscheme
-colorscheme tender
+colorscheme ayu
 
 " Set Airline Theme
-let g:airline_theme = 'tender'
 let g:airline_powerline_fonts = 1
 
 " Emmet vim
@@ -153,19 +155,19 @@ exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' 
 exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
 
-call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
-call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
-call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
-call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
-call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
+call NERDTreeHighlightFile('jade', 'green', 'none', 'green', 0x00151515)
+call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', 0x00151515)
+call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', 0x00151515)
+call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', 0x00151515)
+call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', 0x00151515)
+call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', 0x00151515)
+call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', 0x00151515)
+call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', 0x00151515)
+call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', 0x00151515)
+call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', 0x00151515)
+call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', 0x00151515)
+call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', 0x00151515)
+call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', 0x00151515)
 
 " CtrlP Ignore files in gitignore
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
