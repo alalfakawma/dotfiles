@@ -201,7 +201,7 @@ assign [class="Steam"] $ws4
 assign [class="Typora"] $ws4
 assign [class="Epdfview"] $ws4
 assign [class="Postman"] $ws4
-assign [class="dota2"] $ws5
+assign [class="dota2"] $ws7
 assign [class="Godot"] $ws2
 assign [class="Alacritty"] $ws3
 assign [class="discord"] $ws6
@@ -239,6 +239,7 @@ for_window [window_role="toolbox"] floating enable
 for_window [class="Viewnior"] floating enable
 for_window [class="Spotify"] move to workspace $ws8
 for_window [title="Friends List"] floating enable
+for_window [class="Postman"] floating enable
 # This is for Python TkInter apps
 for_window [class="Tk"] floating enable
 
