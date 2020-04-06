@@ -3,7 +3,7 @@
 options=('1 Laptop(Primary)' '2 External(Primary)' '3 External(Primary) & Laptop' '4 External & Laptop(Primary)')
 
 # Show dmenu list
-selected=$(printf '%s\n' "${options[@]}" | dmenu -i -p "Select display config")
+selected=$(printf '%s\n' "${options[@]}" | rofi -theme ~/.config/rofi/rainbow.rasi -dmenu -i -p "Select display config")
 
 # Run selection
 first=$(echo $selected | awk '{ print $1 }')
