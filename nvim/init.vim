@@ -2,6 +2,8 @@ if has('nvim')
     runtime! plugin/python_setup.vim
 endif
 " Change settings
+set foldlevelstart=1
+set foldmethod=indent
 set rnu
 set mouse=a
 set encoding=UTF-8
