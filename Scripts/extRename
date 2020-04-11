@@ -4,6 +4,19 @@
 # Website: alalfakawma.me
 # Github: https://github.com/alalfakawma
 
-for fish in $(ls $1); do
-    echo $fish
+ext=$1
+rext=$2
+
+if [ -z $ext ] && [ -z $rext ]; then
+    printf "%s\n%s\n%s\n" "Batch Extension Renamer" "Usage:" "Eg. extrename html java"
+    exit 1
+fi
+
+for f in $(ls | grep $1); do
+    if [ -d $f ]; then
+        continue
+    fi
+    fn=$(echo $f | sed "s/$1/$rext/")
+    mv $f $fn
 done
+exit 0
