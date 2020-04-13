@@ -230,3 +230,6 @@ let g:multi_cursor_quit_key = '<C-c>'
 " Move around buffers
 nnoremap <A-h> :bp<return>
 nnoremap <A-l> :bn<return>
+
+" Disable Ex mode
+map Q <Nop>
