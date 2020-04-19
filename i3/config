@@ -199,7 +199,6 @@ assign [class="vlc"] $ws8
 assign [class="Pcmanfm"] $ws5
 assign [class="Steam"] $ws4
 assign [class="Typora"] $ws4
-assign [class="Epdfview"] $ws4
 assign [class="Postman"] $ws4
 assign [class="dota2"] $ws7
 assign [class="Godot"] $ws2
@@ -242,6 +241,7 @@ for_window [title="Friends List"] floating enable
 for_window [class="Postman"] floating enable
 # This is for Python TkInter apps
 for_window [class="Tk"] floating enable
+for_window [class="Epdfview"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
