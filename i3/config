@@ -51,7 +51,7 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 # Bind keyboard multimedia keys to sconsify
 bindsym XF86AudioPrev exec sconsify -command replay
 bindsym XF86AudioPlay exec sconsify -command play_pause
-bindsym XF86AudioNext exec sconsify -command next#
+bindsym XF86AudioNext exec sconsify -command next
 
 ################################################################################################
 
@@ -242,6 +242,7 @@ for_window [class="Postman"] floating enable
 # This is for Python TkInter apps
 for_window [class="Tk"] floating enable
 for_window [class="Epdfview"] floating enable
+for_window [class="Xarchiver"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
