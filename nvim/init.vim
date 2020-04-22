@@ -2,7 +2,7 @@ if has('nvim')
     runtime! plugin/python_setup.vim
 endif
 " Change settings
-set rnu
+set nu rnu
 set mouse=a
 set encoding=UTF-8
 syntax enable
@@ -118,7 +118,7 @@ call plug#end()
 let g:vim_json_syntax_conceal = 0
 
 set termguicolors
-let ayucolor="mirage"
+let ayucolor="dark"
 
 " Set colorscheme
 colorscheme ayu
