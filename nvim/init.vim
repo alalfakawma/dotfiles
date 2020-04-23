@@ -6,21 +6,18 @@ set nu rnu
 set mouse=a
 set encoding=UTF-8
 syntax enable
+set cursorline
 set splitright
 set smartindent
 set splitbelow
-set tabstop=8 
-set softtabstop=0 
+set tabstop=4 softtabstop=4
 set expandtab 
 set shiftround
 set shiftwidth=4 
 set smarttab
-set nuw=4
 set tags=.tags,tags
 set hls
 set backupcopy=yes
-highlight LineNr term=bold cterm=NONE ctermfg=255 ctermbg=234 gui=NONE guifg=DarkGrey guibg=NONE
-highlight CursorLineNr term=bold cterm=bold ctermbg=234 ctermfg=255 gui=bold guifg=DarkGrey guibg=red
 
 " COC Vim Settings
 set cmdheight=2
@@ -28,7 +25,6 @@ set nobackup
 set nowritebackup
 set updatetime=300
 set shortmess+=c
-set signcolumn=yes
 " Coc-snippets expand
 imap <C-q> <Plug>(coc-snippets-expand)
 " Use tab for trigger completion with characters ahead and navigate.
@@ -70,20 +66,7 @@ let g:coc_global_extensions = [
 " Coc prettier run save
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
-" Match brackets
-hi MatchParen cterm=bold ctermbg=white ctermfg=black
-
-" Set leader key
-" let mapleader = "<,>"
-
-" Open Terminal
-noremap <Leader>t <Esc>:terminal<CR>
-inoremap <Leader>t <Esc>:terminal<CR>
-
-" Cursorline
-set cursorline
-hi CursorLine cterm=NONE ctermbg=237 ctermfg=NONE guibg=Grey20
-
+" JSON stuff
 set conceallevel=1
 
 " Plugins ( Add plugins here )
@@ -98,7 +81,6 @@ Plug 'tpope/vim-commentary'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
-Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'craigemery/vim-autotag'
@@ -151,8 +133,8 @@ map <C-b> :NERDTreeToggle<CR>
 
 " NERDTress File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
-exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
-exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+    exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+    exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
 
 call NERDTreeHighlightFile('jade', 'green', 'none', 'green', 0x00151515)
@@ -178,8 +160,8 @@ set noshowcmd
 
 " PHP namespace Import files
 function! IPhpInsertUse()
-call PhpInsertUse()
-call feedkeys('a',  'n')
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
 endfunction
 autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
 autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
@@ -188,8 +170,8 @@ let g:php_namespace_sort_after_insert = 1
 
 " PHP namespace Expand class
 function! IPhpExpandClass()
-call PhpExpandClass()
-call feedkeys('a', 'n')
+    call PhpExpandClass()
+    call feedkeys('a', 'n')
 endfunction
 autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
 autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
@@ -210,22 +192,16 @@ map <Leader>] :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 " Move line up or down
 nnoremap <C-j> :m .+1<CR>==
 nnoremap <C-k> :m .-2<CR>==
-" Disabled insert mode for digraphs
-" inoremap <C-j> <Esc>:m .+1<CR>==gi
-" inoremap <C-k> <Esc>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " Remove search highlight
 nnoremap <C-c> :noh<return><C-c>
 
-" For Alacritty terminal
-" set ttymouse=sgr 
-
 " Vim multiple cursors
 let g:multi_cursor_quit_key = '<C-c>'
 
-" Move around buffers
+" Move back and forth buffers
 nnoremap <A-h> :bp<return>
 nnoremap <A-l> :bn<return>
 
