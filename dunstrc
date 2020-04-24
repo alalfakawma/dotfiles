@@ -12,7 +12,7 @@
 [global]
     monitor = 0
     follow = mouse
-    geometry = "550x6-9+35"
+    geometry = "550x6-5+28"
     indicate_hidden = yes
     shrink = yes
     notification_height = 15
@@ -44,7 +44,7 @@
     always_run_script = true
     startup_notification = false
     verbosity = mesg
-    corner_radius = 4
+    corner_radius = 0
     force_xinerama = false
     mouse_left_click = do_action
     mouse_middle_click = close_all

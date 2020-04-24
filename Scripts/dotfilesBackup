@@ -55,15 +55,23 @@ if [ ! -d $dotfilesFolder/fish ]; then
 	mkdir $dotfilesFolder/fish
 fi
 
+# Copy the files
+if [ ! -d $dotfilesFolder/fish/conf.d ]; then
+    cp -r ~/.config/fish/conf.d $dotfilesFolder/fish/conf.d
+    cp ~/.config/fish/fish_variables $dotfilesFolder/fish/fish_variables
+fi
+
 # Tmux
 # Copy .tmux.conf
 cp ~/.tmux.conf $dotfilesFolder/tmux.conf
 
-# Copy the files
-if [ ! -d $dotfilesFolder/fish/conf.d ]; then
-	cp -r ~/.config/fish/conf.d $dotfilesFolder/fish/conf.d
-	cp ~/.config/fish/fish_variables $dotfilesFolder/fish/fish_variables
-fi
+# Compton
+# Copy .compton.conf
+cp ~/.config/compton.conf $dotfilesFolder/compton.conf
+
+# Polybar
+# Copy polybar folder
+cp -r ~/.config/polybar $dotfilesFolder/polybar
 
 # Commit and push
 git --git-dir $dotfilesFolder/.git --work-tree $dotfilesFolder add .
