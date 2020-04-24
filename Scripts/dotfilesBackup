@@ -71,11 +71,11 @@ cp ~/.config/compton.conf $dotfilesFolder/compton.conf
 
 # Polybar
 # Copy polybar folder
-cp -r ~/.config/polybar $dotfilesFolder/polybar
+cp -r ~/.config/polybar/* $dotfilesFolder/polybar
 
 # ncmpcpp
 # Copy config
-cp -r ~/.ncmpcpp $dotfilesFolder/ncmpcpp
+cp ~/.ncmpcpp/* $dotfilesFolder/ncmpcpp
 
 # Commit and push
 git --git-dir $dotfilesFolder/.git --work-tree $dotfilesFolder add .
