@@ -73,6 +73,10 @@ cp ~/.config/compton.conf $dotfilesFolder/compton.conf
 # Copy polybar folder
 cp -r ~/.config/polybar $dotfilesFolder/polybar
 
+# ncmpcpp
+# Copy config
+cp -r ~/.ncmpcpp $dotfilesFolder/ncmpcpp
+
 # Commit and push
 git --git-dir $dotfilesFolder/.git --work-tree $dotfilesFolder add .
 git --git-dir $dotfilesFolder/.git --work-tree $dotfilesFolder commit -m "Dotfiles Updated at: $(date)"

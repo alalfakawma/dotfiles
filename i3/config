@@ -48,10 +48,10 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 #exec --no-startup-id pa-applet
 #bindsym $mod+Ctrl+m exec pavucontrol
 
-# Bind keyboard multimedia keys to sconsify
-bindsym XF86AudioPrev exec sconsify -command replay
-bindsym XF86AudioPlay exec sconsify -command play_pause
-bindsym XF86AudioNext exec sconsify -command next
+# Bind keyboard multimedia keys to mpc
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioNext exec mpc next
 
 ################################################################################################
 
