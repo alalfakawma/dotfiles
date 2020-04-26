@@ -15,6 +15,7 @@ set expandtab
 set shiftround
 set shiftwidth=4 
 set smarttab
+set ignorecase smartcase
 set tags=.tags,tags
 set hls
 set backupcopy=yes
@@ -107,6 +108,7 @@ colorscheme ayu
 
 " Set Airline Theme
 let g:airline_powerline_fonts = 1
+let g:airline_theme = 'monochrome'
 
 " Emmet vim
 let g:user_emmet_leader_key='<Leader>'

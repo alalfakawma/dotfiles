@@ -77,6 +77,10 @@ cp -r ~/.config/polybar/* $dotfilesFolder/polybar
 # Copy config
 cp ~/.ncmpcpp/* $dotfilesFolder/ncmpcpp
 
+# rofi
+# Copy config
+cp ~/.config/rofi $dotfilesFolder
+
 # Commit and push
 git --git-dir $dotfilesFolder/.git --work-tree $dotfilesFolder add .
 git --git-dir $dotfilesFolder/.git --work-tree $dotfilesFolder commit -m "Dotfiles Updated at: $(date)"
