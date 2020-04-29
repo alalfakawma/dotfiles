@@ -198,7 +198,7 @@ vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " Remove search highlight
-nnoremap <C-c> :noh<return><C-c>
+nnoremap <C-c> :noh<return>
 
 " Vim multiple cursors
 let g:multi_cursor_quit_key = '<C-c>'
