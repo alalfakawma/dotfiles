@@ -308,7 +308,7 @@ exec --no-startup-id pamac-tray
 # exec_always --no-startup-id sbxkb
 # exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 20 -locker "betterlockscreen -l dim"
+exec --no-startup-id xautolock -time 20 -locker "multilockscreen --lock dim"
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id xinput --set-prop 11  "libinput Natural Scrolling Enabled" 1
