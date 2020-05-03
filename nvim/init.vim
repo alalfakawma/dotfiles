@@ -209,3 +209,6 @@ nnoremap <A-l> :bn<return>
 
 " Disable Ex mode
 map Q <Nop>
+
+" Disable indentline in markdown
+autocmd FileType markdown let g:indentLine_enabled=0
