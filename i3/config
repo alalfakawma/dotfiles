@@ -192,8 +192,8 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 assign [class="firefox"] $ws1
 assign [class="VirtualBox Manager"] $ws4
 assign [class="VirtualBox Machine"] $ws4
-assign [class="sun-awt-X11-XFramePeer"] $ws4
-assign [class="processing-app-Base"] $ws4
+assign [class="sun-awt-X11-XFramePeer"] $ws2
+assign [class="processing-app-Base"] $ws2
 assign [class="Sublime_text"] $ws2
 assign [class="vlc"] $ws8
 assign [class="Pcmanfm"] $ws5
