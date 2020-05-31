@@ -96,16 +96,15 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ayu-theme/ayu-vim'
+Plug 'gruvbox-community/gruvbox'
 
 call plug#end()
 let g:vim_json_syntax_conceal = 0
 
 set termguicolors
-let ayucolor="dark"
 
 " Set colorscheme
-colorscheme ayu
+colorscheme gruvbox
 
 " Set Airline Theme
 let g:airline_powerline_fonts = 1
