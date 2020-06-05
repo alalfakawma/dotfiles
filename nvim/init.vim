@@ -63,7 +63,6 @@ let g:coc_global_extensions = [
     \ 'coc-phpls',
     \ 'coc-html',
     \ 'coc-css',
-    \ 'coc-vetur'
     \ ]
 " Coc prettier run save
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
