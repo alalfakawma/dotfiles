@@ -9,6 +9,7 @@ syntax enable
 set cursorline
 set splitright
 set smartindent
+set colorcolumn=80
 set splitbelow
 set tabstop=4 softtabstop=4
 set expandtab 
@@ -77,7 +78,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'elzr/vim-json'
 Plug 'mattn/emmet-vim'
 Plug 'posva/vim-vue'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-commentary'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mxw/vim-jsx'
@@ -96,6 +96,8 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'gruvbox-community/gruvbox'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 let g:vim_json_syntax_conceal = 0
@@ -151,9 +153,6 @@ call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', 0x00151515)
 call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', 0x00151515)
 call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', 0x00151515)
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', 0x00151515)
-
-" CtrlP Ignore files in gitignore
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " Don't show mode 
 set noshowmode
@@ -211,3 +210,10 @@ map Q <Nop>
 
 " Disable indentline in markdown
 autocmd FileType markdown let g:indentLine_enabled=0
+let NERDTreeHijackNetrw=1
+
+" FZF
+nnoremap <C-p> :GFiles<CR>
+nnoremap <A-p> :Files<CR>
+nnoremap <C-l> :GFiles?<CR>
+nnoremap <A-l> :Buffer<CR>
