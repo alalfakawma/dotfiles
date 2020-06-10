@@ -216,7 +216,7 @@ let NERDTreeHijackNetrw=1
 nnoremap <C-p> :GFiles<CR>
 nnoremap <A-p> :Files<CR>
 nnoremap <C-l> :GFiles?<CR>
-nnoremap <A-l> :Buffer<CR>
+nnoremap <A-k> :Buffer<CR>
 
 let g:fzf_action = {
       \ 'ctrl-t': 'tab split',
