@@ -1,0 +1,12 @@
+#! /bin/sh
+# Toggle touchpad enabled/disabled
+
+enabled=$(xinput list-props "ETPS/2 Elantech Touchpad" | awk '{ print $4 }' | head -n 2 | tail -n 1)
+
+if [ $enabled == 1 ]; then
+    xinput disable "ETPS/2 Elantech Touchpad"
+    notify-send "Touchpad Disabled!"
+else
+    xinput enable "ETPS/2 Elantech Touchpad"
+    notify-send "Touchpad Enabled!"
+fi

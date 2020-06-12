@@ -311,7 +311,7 @@ exec --no-startup-id pamac-tray
 exec --no-startup-id xautolock -time 20 -locker "multilockscreen --lock dim"
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-exec_always --no-startup-id xinput --set-prop 11  "libinput Natural Scrolling Enabled" 1
+exec_always --no-startup-id xinput --set-prop "ETPS/2 Elantech Touchpad" "libinput Natural Scrolling Enabled" 1
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
@@ -386,6 +386,7 @@ bindsym $mod+F12 exec ~/Documents/Scripts/displayPicker
 bindsym $mod+comma exec ~/Documents/Scripts/emojiPicker
 bindsym $mod+F9 exec networkmanager_dmenu
 bindsym $mod+P exec ~/Documents/Scripts/getPassword
+bindsym $mod+M exec ~/Documents/Scripts/mouseEnableDisable
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

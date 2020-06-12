@@ -11,7 +11,7 @@ first=$(echo $selected | awk '{ print $1 }')
 if [ $first -eq 1 ]; then
 	xrandr --output eDP1 --primary --auto
 	xrandr --output DP1 --off
-	xinput --set-prop 15 "libinput Natural Scrolling Enabled" 1
+	xinput --set-prop "ETPS/2 Elantech Touchpad" "libinput Natural Scrolling Enabled" 1
         $HOME/.config/polybar/launch.sh
 	nitrogen --restore
 	killall dunst; exec notify-send 'Dunst Restarted!'
