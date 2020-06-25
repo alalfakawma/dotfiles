@@ -243,6 +243,9 @@ for_window [class="Postman"] floating enable
 for_window [class="Tk"] floating enable
 for_window [class="Epdfview"] floating enable
 for_window [class="Xarchiver"] floating enable
+# TODO: Remove this after development
+# Debug Rust Iced app
+for_window [class="emojipicker"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
