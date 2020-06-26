@@ -104,8 +104,6 @@ let g:vim_json_syntax_conceal = 0
 
 set termguicolors
 
-let g:gruvbox_colors = "(light0)"
-
 " Set colorscheme
 colorscheme gruvbox
 
