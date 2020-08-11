@@ -98,11 +98,15 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'gruvbox-community/gruvbox'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 
 call plug#end()
 let g:vim_json_syntax_conceal = 0
 
 set termguicolors
+
+" Set contrast for gruvbox
+let g:gruvbox_contrast_dark = 'hard'
 
 " Set colorscheme
 colorscheme gruvbox
