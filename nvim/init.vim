@@ -82,7 +82,6 @@ Plug 'tpope/vim-commentary'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'craigemery/vim-autotag'
 Plug 'cakebaker/scss-syntax.vim'
@@ -98,6 +97,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'gruvbox-community/gruvbox'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'mg979/vim-visual-multi'
 
 call plug#end()
 let g:vim_json_syntax_conceal = 0
@@ -106,6 +106,7 @@ set termguicolors
 
 " Set contrast for gruvbox
 let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_italic = 1
 
 " Set colorscheme
 colorscheme gruvbox
@@ -201,9 +202,6 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 " Remove search highlight
 nnoremap <C-c> :noh<return>
 
-" Vim multiple cursors
-let g:multi_cursor_quit_key = '<C-c>'
-
 " Move back and forth buffers
 nnoremap <A-h> :bp<return>
 nnoremap <A-l> :bn<return>
@@ -226,3 +224,16 @@ let g:fzf_action = {
       \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit'
   \ }
+
+" Visual multi
+let g:VM_quit_after_leaving_insert_mode = 1
+
+fun! VM_Start()
+  nmap <buffer> <C-C> <Esc>
+  imap <buffer> <C-C> <Esc>
+endfun
+
+fun! VM_Exit()
+  nunmap <buffer> <C-C>
+  iunmap <buffer> <C-C>
+endfun
