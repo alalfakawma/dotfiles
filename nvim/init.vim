@@ -94,26 +94,24 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'gruvbox-community/gruvbox'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'mg979/vim-visual-multi'
+Plug 'nanotech/jellybeans.vim'
 
 call plug#end()
 let g:vim_json_syntax_conceal = 0
 
 set termguicolors
 
-" Set contrast for gruvbox
-let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_italic = 1
+" Set italics for jellybeans
+let g:jellybeans_use_term_italics = 1
 
 " Set colorscheme
-colorscheme gruvbox
+colorscheme jellybeans
 
 " Set Airline Theme
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'monochrome'
 
 " Emmet vim
 let g:user_emmet_leader_key='<Leader>'
