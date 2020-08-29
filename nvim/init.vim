@@ -17,9 +17,12 @@ set shiftround
 set shiftwidth=4 
 set smarttab
 set ignorecase smartcase
-set tags=.tags,tags
 set hls
 set backupcopy=yes
+
+" Don't show mode 
+set noshowmode
+set noshowcmd
 
 " COC Vim Settings
 set cmdheight=2
@@ -27,9 +30,14 @@ set nobackup
 set nowritebackup
 set updatetime=300
 set shortmess+=c
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
 " Coc-snippets expand
 inoremap <silent><expr> <C-q> pumvisible() ? coc#_select_confirm() : 
                                            \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
@@ -42,11 +50,13 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
 " Documentation
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
@@ -56,6 +66,16 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+" Find symbol of current document.
+nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+
+" Search workspace symbols.
+nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+
+" Close preview window after completion is done
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
 " COC Extensions
 let g:coc_global_extensions = [
     \ 'coc-snippets',
@@ -82,8 +102,6 @@ Plug 'tpope/vim-commentary'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
-Plug 'arnaud-lb/vim-php-namespace'
-Plug 'craigemery/vim-autotag'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
@@ -155,31 +173,6 @@ call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', 0x00151515)
 call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', 0x00151515)
 call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', 0x00151515)
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', 0x00151515)
-
-" Don't show mode 
-set noshowmode
-set noshowcmd
-
-" PHP namespace Import files
-function! IPhpInsertUse()
-    call PhpInsertUse()
-    call feedkeys('a',  'n')
-endfunction
-autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
-autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
-
-let g:php_namespace_sort_after_insert = 1
-
-" PHP namespace Expand class
-function! IPhpExpandClass()
-    call PhpExpandClass()
-    call feedkeys('a', 'n')
-endfunction
-autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
-autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
-
-" Autotags
-let g:autotagTagsFile=".tags"
 
 " Save file
 noremap <Leader>w <Esc>:w<CR>

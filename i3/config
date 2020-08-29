@@ -87,10 +87,10 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -393,3 +393,7 @@ bindsym $mod+M exec ~/Documents/Scripts/mouseEnableDisable
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# Amixer (mainly for bluetooth)
+bindsym $mod+Up exec amixer sset Master 5%+
+bindsym $mod+Down exec amixer sset Master 5%-
