@@ -99,12 +99,13 @@ Plug 'elzr/vim-json'
 Plug 'mattn/emmet-vim'
 Plug 'posva/vim-vue'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive' 
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'honza/vim-snippets'
-Plug 'tpope/vim-surround'
 Plug 'jwalton512/vim-blade'
 Plug 'Yggdroot/indentLine'
 Plug 'godlygeek/tabular'
@@ -128,7 +129,7 @@ let g:jellybeans_use_term_italics = 1
 " Set colorscheme
 colorscheme jellybeans
 
-" Set Airline Theme
+" Enable powerline fonts for airline
 let g:airline_powerline_fonts = 1
 
 " Emmet vim
@@ -180,9 +181,6 @@ inoremap <Leader>w <Esc>:w<CR>
 
 " Quit file
 nnoremap <Leader>q <Esc>:q<CR>
-
-" Open Definition in vertical split
-map <Leader>] :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 " Move line up or down
 nnoremap <C-j> :m .+1<CR>==
