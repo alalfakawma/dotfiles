@@ -13,6 +13,6 @@ if [ "$COUNT" != "0" ]
       set WORD "mails"
    end
    if [ "$COUNT" != "$OLD_COUNT" ]
-      notify-send -t 3000 -i /home/aseem/Pictures/i3blocks/mail.png "You have $COUNT unread $WORD";
+      notify-send -t 3000 "You have $COUNT unread $WORD";
    end
 end
