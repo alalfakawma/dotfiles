@@ -117,17 +117,26 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'nanotech/jellybeans.vim'
+Plug 'NLKNguyen/papercolor-theme' 
 
 call plug#end()
 let g:vim_json_syntax_conceal = 0
 
 set termguicolors
 
-" Set italics for jellybeans
-let g:jellybeans_use_term_italics = 1
+set background=light
+
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default.light': {
+  \       'allow_italic' : 1,
+  \       'allow_bold' : 1
+  \     }
+  \   }
+  \ }
 
 " Set colorscheme
-colorscheme jellybeans
+colorscheme PaperColor
 
 " Enable powerline fonts for airline
 let g:airline_powerline_fonts = 1
@@ -162,13 +171,13 @@ function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
 endfunction
 
 call NERDTreeHighlightFile('jade', 'green', 'none', 'green', 0x00151515)
-call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', 0x00151515)
+call NERDTreeHighlightFile('ini', 'green', 'none', 'green', 0x00151515)
 call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', 0x00151515)
-call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', 0x00151515)
-call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', 0x00151515)
-call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', 0x00151515)
-call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', 0x00151515)
-call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', 0x00151515)
+call NERDTreeHighlightFile('yml', 'green', 'none', 'green', 0x00151515)
+call NERDTreeHighlightFile('config', 'green', 'none', 'green', 0x00151515)
+call NERDTreeHighlightFile('conf', 'green', 'none', 'green', 0x00151515)
+call NERDTreeHighlightFile('json', 'green', 'none', 'green', 0x00151515)
+call NERDTreeHighlightFile('html', 'green', 'none', 'green', 0x00151515)
 call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', 0x00151515)
 call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', 0x00151515)
 call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', 0x00151515)
@@ -226,3 +235,6 @@ fun! VM_Exit()
   nunmap <buffer> <C-C>
   iunmap <buffer> <C-C>
 endfun
+
+nmap <leader>i  viw<Plug>(coc-codeaction-selected)
+
