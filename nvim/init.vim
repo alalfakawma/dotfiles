@@ -117,26 +117,18 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'nanotech/jellybeans.vim'
-Plug 'NLKNguyen/papercolor-theme' 
+Plug 'joshdick/onedark.vim' 
 
 call plug#end()
 let g:vim_json_syntax_conceal = 0
 
 set termguicolors
 
-set background=light
-
-let g:PaperColor_Theme_Options = {
-  \   'theme': {
-  \     'default.light': {
-  \       'allow_italic' : 1,
-  \       'allow_bold' : 1
-  \     }
-  \   }
-  \ }
+" Onedark italics
+let g:onedark_terminal_italics = 1
 
 " Set colorscheme
-colorscheme PaperColor
+colorscheme onedark
 
 " Enable powerline fonts for airline
 let g:airline_powerline_fonts = 1

@@ -80,12 +80,12 @@ font:
         style: Bold
 
     # Point size
-    size: 9.5
+    size: 9
 
     # Offset is the extra space around each character. `offset.y` can be thought of
     # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
     offset:
-        x: -1
+        x: 0
         y: 0
     # Glyph offset determines the locations of the glyphs within their cells with
     # the default being at the bottom. Increasing `x` moves the glyph to the right,
@@ -182,7 +182,6 @@ mouse:
     # - `mods` (see key bindings)
     #mouse_bindings:
     #  - { mouse: Middle, action: PasteSelection }
-
     # Key bindings
     #
     # Key bindings are specified as a list of objects. For example, this is the
@@ -296,10 +295,8 @@ mouse:
     #- { key: Add,      mods: Control,       action: IncreaseFontSize }
     #- { key: Subtract, mods: Control,       action: DecreaseFontSize }
     #- { key: Minus,    mods: Control,       action: DecreaseFontSize }
-
     # (Windows only)
     #- { key: Return,   mods: Alt,           action: ToggleFullscreen }
-
     # (macOS only)
     #- { key: Key0,   mods: Command,         action: ResetFontSize    }
     #- { key: Equals, mods: Command,         action: IncreaseFontSize }
@@ -314,7 +311,6 @@ mouse:
     #- { key: Q,      mods: Command,         action: Quit             }
     #- { key: W,      mods: Command,         action: Quit             }
     #- { key: F,      mods: Command|Control, action: ToggleFullscreen }
-
     #- { key: Paste,                    action: Paste                            }
     #- { key: Copy,                     action: Copy                             }
     #- { key: L,         mods: Control, action: ClearLogNotice                   }
@@ -323,14 +319,11 @@ mouse:
     #- { key: PageDown,  mods: Shift,   action: ScrollPageDown, mode: ~Alt       }
     #- { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
     #- { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
-
     #debug:
     # Display the time it takes to redraw each frame.
     #render_timer: false
-
     # Keep the log file after quitting Alacritty.
     #persistent_logging: false
-
     # Log level
     #
     # Values for `log_level`:
@@ -341,40 +334,39 @@ mouse:
     #   - Debug
     #   - Trace
     #log_level: Warn
-
     # Print all received window events.
     # print_events: false
-
     # Colors (Base16 Default Dark)
     # colors:
     #     # Default colors
     #     primary:
     #         background: "0x181818"
     #         foreground: "0xd8d8d8"
-
-    #     # Colors the cursor will use if `custom_cursor_colors` is true
-    cursor:
-        text: "0xd8d8d8"
-        cursor: "0xd8d8d8"
+# Colors (One Dark)
+colors:
+    # Default colors
+    primary:
+        background: "0x1e2127"
+        foreground: "0xabb2bf"
 
     # Normal colors
     normal:
-        black: "0x181818"
-        red: "0xab4642"
-        green: "0xa1b56c"
-        yellow: "0xf7ca88"
-        blue: "0x7cafc2"
-        magenta: "0xba8baf"
-        cyan: "0x86c1b9"
-        white: "0xd8d8d8"
+        black: "0x1e2127"
+        red: "0xe06c75"
+        green: "0x98c379"
+        yellow: "0xd19a66"
+        blue: "0x61afef"
+        magenta: "0xc678dd"
+        cyan: "0x56b6c2"
+        white: "0xabb2bf"
 
     # Bright colors
     bright:
-        black: "0x585858"
-        red: "0xab4642"
-        green: "0xa1b56c"
-        yellow: "0xf7ca88"
-        blue: "0x7cafc2"
-        magenta: "0xba8baf"
-        cyan: "0x86c1b9"
-        white: "0xf8f8f8"
+        black: "0x5c6370"
+        red: "0xe06c75"
+        green: "0x98c379"
+        yellow: "0xd19a66"
+        blue: "0x61afef"
+        magenta: "0xc678dd"
+        cyan: "0x56b6c2"
+        white: "0xffffff"
