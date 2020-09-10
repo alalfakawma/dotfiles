@@ -109,7 +109,6 @@ Plug 'honza/vim-snippets'
 Plug 'jwalton512/vim-blade'
 Plug 'Yggdroot/indentLine'
 Plug 'godlygeek/tabular'
-Plug 'ryanoasis/vim-devicons'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -122,10 +121,12 @@ Plug 'joshdick/onedark.vim'
 call plug#end()
 let g:vim_json_syntax_conceal = 0
 
+" Enable true color
 set termguicolors
 
 " Onedark italics
 let g:onedark_terminal_italics = 1
+let g:onedark_termcolors = 256
 
 " Set colorscheme
 colorscheme onedark
@@ -229,4 +230,3 @@ fun! VM_Exit()
 endfun
 
 nmap <leader>i  viw<Plug>(coc-codeaction-selected)
-
