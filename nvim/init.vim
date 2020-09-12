@@ -8,9 +8,9 @@ set encoding=UTF-8
 syntax enable
 set cursorline
 set splitright
+set splitbelow
 set smartindent
 set colorcolumn=80
-set splitbelow
 set tabstop=4 softtabstop=4
 set expandtab 
 set shiftround
@@ -94,14 +94,12 @@ set conceallevel=1
 " Plugins ( Add plugins here )
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree'
 Plug 'elzr/vim-json'
 Plug 'mattn/emmet-vim'
 Plug 'posva/vim-vue'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive' 
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'cakebaker/scss-syntax.vim'
@@ -117,6 +115,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'nanotech/jellybeans.vim'
 Plug 'joshdick/onedark.vim' 
+Plug 'Shougo/defx.nvim'
+Plug 'kristijanhusak/defx-git'
 
 call plug#end()
 let g:vim_json_syntax_conceal = 0
@@ -139,43 +139,6 @@ let g:user_emmet_leader_key='<Leader>'
 
 " Vim-vue fix for some error which can happen which I forgot
 autocmd FileType vue syntax sync fromstart
-
-" Open Nerdtree automatically when opening vim without specifying a file
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" Close Nerdtree if it is the only one opened when you close a file
-autocmd bufenter * nested if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Open Nerdtree automatically when opening a directory
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-
-" Let nerdtree show hidden files
-let NERDTreeShowHidden=1
-
-" Toggle Nerdtree
-map <C-b> :NERDTreeToggle<CR>
-
-" NERDTress File highlighting
-function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
-    exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
-    exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-endfunction
-
-call NERDTreeHighlightFile('jade', 'green', 'none', 'green', 0x00151515)
-call NERDTreeHighlightFile('ini', 'green', 'none', 'green', 0x00151515)
-call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', 0x00151515)
-call NERDTreeHighlightFile('yml', 'green', 'none', 'green', 0x00151515)
-call NERDTreeHighlightFile('config', 'green', 'none', 'green', 0x00151515)
-call NERDTreeHighlightFile('conf', 'green', 'none', 'green', 0x00151515)
-call NERDTreeHighlightFile('json', 'green', 'none', 'green', 0x00151515)
-call NERDTreeHighlightFile('html', 'green', 'none', 'green', 0x00151515)
-call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', 0x00151515)
-call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', 0x00151515)
-call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', 0x00151515)
-call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', 0x00151515)
-call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', 0x00151515)
 
 " Save file
 noremap <Leader>w <Esc>:w<CR>
@@ -202,7 +165,6 @@ map Q <Nop>
 
 " Disable indentline in markdown
 autocmd FileType markdown let g:indentLine_enabled=0
-let NERDTreeHijackNetrw=1
 
 " FZF
 nnoremap <C-p> :GFiles<CR>
@@ -229,4 +191,60 @@ fun! VM_Exit()
   iunmap <buffer> <C-C>
 endfun
 
+" coc codeaction
 nmap <leader>i  viw<Plug>(coc-codeaction-selected)
+
+" defx
+nmap <C-b> :Defx -columns=git:indent:filename:type -split=vertical -winwidth=40 -direction=topleft<CR>
+autocmd FileType defx call s:defx_my_settings()
+	function! s:defx_my_settings() abort
+	  " Define mappings
+	  nnoremap <silent><buffer><expr> <CR>
+	  \ defx#do_action('open')
+	  nnoremap <silent><buffer><expr> c
+	  \ defx#do_action('copy')
+	  nnoremap <silent><buffer><expr> m
+	  \ defx#do_action('move')
+	  nnoremap <silent><buffer><expr> p
+	  \ defx#do_action('paste')
+	  nnoremap <silent><buffer><expr> l
+	  \ defx#do_action('open_tree')
+	  nnoremap <silent><buffer><expr> i
+	  \ defx#do_action('open', 'split')
+	  nnoremap <silent><buffer><expr> s
+	  \ defx#do_action('open', 'vsplit')
+	  nnoremap <silent><buffer><expr> o
+	  \ defx#do_action('open_tree', 'toggle')
+	  nnoremap <silent><buffer><expr> D
+	  \ defx#do_action('new_directory')
+	  nnoremap <silent><buffer><expr> N
+	  \ defx#do_action('new_file')
+	  nnoremap <silent><buffer><expr> d
+	  \ defx#do_action('remove')
+	  nnoremap <silent><buffer><expr> r
+	  \ defx#do_action('rename')
+	  nnoremap <silent><buffer><expr> !
+	  \ defx#do_action('execute_command')
+	  nnoremap <silent><buffer><expr> x
+	  \ defx#do_action('execute_system')
+	  nnoremap <silent><buffer><expr> yy
+	  \ defx#do_action('yank_path')
+	  nnoremap <silent><buffer><expr> .
+	  \ defx#do_action('toggle_ignored_files')
+	  nnoremap <silent><buffer><expr> H
+	  \ defx#do_action('cd', ['..'])
+	  nnoremap <silent><buffer><expr> ~
+	  \ defx#do_action('cd')
+	  nnoremap <silent><buffer><expr> q
+	  \ defx#do_action('quit')
+	  nnoremap <silent><buffer><expr> <Space>
+	  \ defx#do_action('toggle_select') . 'j'
+	  nnoremap <silent><buffer><expr> *
+	  \ defx#do_action('toggle_select_all')
+	  nnoremap <silent><buffer><expr> j
+	  \ line('.') == line('$') ? 'gg' : 'j'
+	  nnoremap <silent><buffer><expr> k
+	  \ line('.') == 1 ? 'G' : 'k'
+	  nnoremap <silent><buffer><expr> <C-l>
+	  \ defx#do_action('redraw')
+	endfunction
