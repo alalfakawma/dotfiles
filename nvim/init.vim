@@ -12,9 +12,9 @@ set splitbelow
 set smartindent
 set colorcolumn=80
 set tabstop=4 softtabstop=4
+set shiftwidth=4 
 set expandtab 
 set shiftround
-set shiftwidth=4 
 set smarttab
 set ignorecase smartcase
 set hls
@@ -25,7 +25,7 @@ set noshowmode
 set noshowcmd
 
 " COC Vim Settings
-set cmdheight=2
+" set cmdheight=2
 set nobackup
 set nowritebackup
 set updatetime=300
