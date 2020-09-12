@@ -1,3 +1,0 @@
-execute_on_song_change = notify-send "Now Playing" "$(mpc --format '%title% \n%artist% - %album%' current)"
-display_bitrate = "yes"
-song_columns_list_format = "(6f)[default]{l} (30)[default]{t|f} (25)[default]{a} (40)[default]{b}"

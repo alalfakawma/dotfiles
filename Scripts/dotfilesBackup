@@ -56,10 +56,7 @@ if [ ! -d $dotfilesFolder/fish ]; then
 fi
 
 # Copy the files
-if [ ! -d $dotfilesFolder/fish/conf.d ]; then
-    cp -r ~/.config/fish/conf.d $dotfilesFolder/fish/conf.d
-    cp ~/.config/fish/fish_variables $dotfilesFolder/fish/fish_variables
-fi
+cp -r ~/.config/fish/conf.d $dotfilesFolder/fish/conf.d
 
 # Tmux
 # Copy .tmux.conf
@@ -72,10 +69,6 @@ cp ~/.config/compton.conf $dotfilesFolder/compton.conf
 # Polybar
 # Copy polybar folder
 cp -r ~/.config/polybar/* $dotfilesFolder/polybar
-
-# ncmpcpp
-# Copy config
-cp ~/.ncmpcpp/* $dotfilesFolder/ncmpcpp
 
 # rofi
 # Copy config
