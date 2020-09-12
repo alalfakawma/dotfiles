@@ -56,7 +56,7 @@ if [ ! -d $dotfilesFolder/fish ]; then
 fi
 
 # Copy the files
-cp -r ~/.config/fish/conf.d $dotfilesFolder/fish/conf.d
+cp -r ~/.config/fish/conf.d/* $dotfilesFolder/fish/conf.d
 
 # Tmux
 # Copy .tmux.conf
