@@ -85,8 +85,6 @@ let g:coc_global_extensions = [
     \ 'coc-html',
     \ 'coc-css',
     \ ]
-" Coc prettier run save
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " JSON stuff
 set conceallevel=1
@@ -172,11 +170,15 @@ nnoremap <A-p> :Files<CR>
 nnoremap <C-l> :GFiles?<CR>
 nnoremap <A-k> :Buffer<CR>
 
+" Action maps
 let g:fzf_action = {
       \ 'ctrl-t': 'tab split',
       \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit'
   \ }
+
+" Floating layout FZF
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
 " Visual multi
 let g:VM_quit_after_leaving_insert_mode = 1
@@ -190,9 +192,6 @@ fun! VM_Exit()
   nunmap <buffer> <C-C>
   iunmap <buffer> <C-C>
 endfun
-
-" coc codeaction
-nmap <leader>i  viw<Plug>(coc-codeaction-selected)
 
 " defx
 nmap <C-b> :Defx -columns=git:indent:filename:type -split=vertical -winwidth=40 -direction=topleft<CR>
