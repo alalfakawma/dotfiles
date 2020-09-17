@@ -8,7 +8,7 @@
  */
 
 configuration {
-    drun-display-format: "{icon} {name}";
+    drun-display-format: "{name}";
     display-drun: "Apps";
 	show-icons: true;
 	icon-theme: "Moka";
@@ -19,7 +19,6 @@ configuration {
 	hide-scrollbar: true;
 	bw: 0;
     fullscreen: false;
-    show-icons: true;
 	terminal: "alacritty";
 	sidebar-mode: false;
 }
@@ -56,32 +55,37 @@ fg: #ffffff;
 }
 
 window {
-  height: 33%;
-  width: 20%;
+  height: 30%;
+  width: 30%;
   transparency: "real";
 }
 
 mainbox {
   children: [ inputbar, listview ];
-  padding: 0% 0% 0% 0%;
   background-color: @bg;
-  border: 0;
-  border-radius: 5;
-  border-color: @bg;
 }
 
 listview {
   columns: 1;
   padding: 0;
-  spacing: 2;
+  spacing: 0;
 }
 
 element {
   border: 0;
+  position: center;
   text-color: @fg;
-  orientation: vertical;
-  padding: 12 12 12 12;
   border-radius: 0;
+}
+
+element-text {
+    position: south;
+    padding: 7 0 7 5;
+}
+
+element-icon {
+    size: 25;
+    padding: 0 0 0 10;
 }
 
 element selected {

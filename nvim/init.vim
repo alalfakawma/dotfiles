@@ -115,6 +115,7 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'joshdick/onedark.vim' 
 Plug 'Shougo/defx.nvim'
 Plug 'kristijanhusak/defx-git'
+Plug 'cormacrelf/vim-colors-github'
 
 call plug#end()
 let g:vim_json_syntax_conceal = 0
@@ -123,14 +124,22 @@ let g:vim_json_syntax_conceal = 0
 set termguicolors
 
 " Onedark italics
-let g:onedark_terminal_italics = 1
-let g:onedark_termcolors = 256
+" let g:onedark_terminal_italics = 1
+" let g:onedark_termcolors = 256
+
+" github colorscheme
+set background=light
+let g:github_colors_soft = 1
 
 " Set colorscheme
-colorscheme onedark
+colorscheme github
+
+" github italic comments
+hi Comment gui=italic cterm=italic term=italic
 
 " Enable powerline fonts for airline
 let g:airline_powerline_fonts = 1
+let g:airline_theme = "github"
 
 " Emmet vim
 let g:user_emmet_leader_key='<Leader>'
