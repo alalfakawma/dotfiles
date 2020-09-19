@@ -241,6 +241,7 @@ for_window [title="Friends List"] floating enable
 for_window [class="Postman"] floating enable
 for_window [class="Epdfview"] floating enable
 for_window [class="Xarchiver"] floating enable
+for_window [class="Arandr"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
