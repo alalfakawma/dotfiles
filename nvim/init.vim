@@ -137,8 +137,7 @@ colorscheme github
 " github italic comments
 hi Comment gui=italic cterm=italic term=italic
 
-" Enable powerline fonts for airline
-let g:airline_powerline_fonts = 1
+" Airline theme
 let g:airline_theme = "github"
 
 " Emmet vim
