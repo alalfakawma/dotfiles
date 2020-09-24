@@ -1,6 +1,7 @@
 if has('nvim')
     runtime! plugin/python_setup.vim
 endif
+
 " Change settings
 set nu rnu
 set mouse=a
@@ -206,5 +207,8 @@ let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 15
+
+" for netrw Vertical split open
+set equalalways
 
 nnoremap <C-b> :Lexplore<CR>
