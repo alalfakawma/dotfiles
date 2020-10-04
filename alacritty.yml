@@ -371,35 +371,29 @@ mouse:
 #         cyan: "0x56b6c2"
 #         white: "0xffffff"
 #
-# Colors (PaperColor - Light)
+# Colors (Pencil Dark)
 colors:
-    # Default colors
+    # Default Colors
     primary:
-        background: "0xeeeeee"
-        foreground: "0x878787"
-
-    cursor:
-        text: "0xeeeeee"
-        cursor: "0x878787"
-
+        background: "0x212121"
+        foreground: "0xf1f1f1"
     # Normal colors
     normal:
-        black: "0xeeeeee"
-        red: "0xaf0000"
-        green: "0x008700"
-        yellow: "0x5f8700"
-        blue: "0x0087af"
-        magenta: "0x878787"
-        cyan: "0x005f87"
-        white: "0x444444"
-
+        black: "0x212121"
+        red: "0xc30771"
+        green: "0x10a778"
+        yellow: "0xa89c14"
+        blue: "0x008ec4"
+        magenta: "0x523c79"
+        cyan: "0x20a5ba"
+        white: "0xe0e0e0"
     # Bright colors
     bright:
-        black: "0xbcbcbc"
-        red: "0xd70000"
-        green: "0xd70087"
-        yellow: "0x8700af"
-        blue: "0xd75f00"
-        magenta: "0xd75f00"
-        cyan: "0x005faf"
-        white: "0x005f87"
+        black: "0x818181"
+        red: "0xfb007a"
+        green: "0x5fd7af"
+        yellow: "0xf3e430"
+        blue: "0x20bbfc"
+        magenta: "0x6855de"
+        cyan: "0x4fb8cc"
+        white: "0xf1f1f1"

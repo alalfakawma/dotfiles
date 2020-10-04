@@ -128,7 +128,7 @@ set termguicolors
 " let g:onedark_termcolors = 256
 
 " github colorscheme
-set background=light
+set background=dark
 let g:github_colors_soft = 1
 
 " Set colorscheme
