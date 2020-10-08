@@ -160,7 +160,10 @@ vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " Remove search highlight
-nnoremap <C-c> :noh<return>
+nnoremap <C-c> :noh<CR>
+
+" Map C-c to ESC
+inoremap <C-c> <Esc>
 
 " Move back and forth buffers
 nnoremap <A-h> :bp<return>
