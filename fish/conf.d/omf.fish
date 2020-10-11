@@ -63,3 +63,6 @@ alias pwps="pass git push"
 alias fo="fzf | xargs xdg-open"
 alias fv="fzf | xargs nvim"
 alias art="php artisan"
+
+# Starship
+starship init fish | source
