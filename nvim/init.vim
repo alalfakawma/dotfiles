@@ -113,7 +113,6 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'nanotech/jellybeans.vim'
-Plug 'joshdick/onedark.vim' 
 Plug 'kristijanhusak/defx-git'
 Plug 'cormacrelf/vim-colors-github'
 
@@ -123,12 +122,8 @@ let g:vim_json_syntax_conceal = 0
 " Enable true color
 set termguicolors
 
-" Onedark italics
-" let g:onedark_terminal_italics = 1
-" let g:onedark_termcolors = 256
-
 " github colorscheme
-set background=dark
+set background=light
 let g:github_colors_soft = 1
 
 " Set colorscheme
