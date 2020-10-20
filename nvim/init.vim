@@ -123,7 +123,7 @@ let g:vim_json_syntax_conceal = 0
 set termguicolors
 
 " github colorscheme
-set background=light
+set background=dark
 let g:github_colors_soft = 1
 
 " Set colorscheme
