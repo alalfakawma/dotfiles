@@ -50,7 +50,6 @@ alias o="xdg-open"
 alias v="nvim"
 alias i3conf="nvim /home/aseem/.i3/config"
 alias vimrc="nvim ~/.config/nvim/init.vim"
-alias sites="cd ~/Code/Sites"
 alias alaconf="v ~/.config/alacritty/alacritty.yml"
 alias hosts="sudo nvim /etc/hosts"
 alias t="tmux"
@@ -63,6 +62,12 @@ alias pwps="pass git push"
 alias fo="fzf | xargs xdg-open"
 alias fv="fzf | xargs nvim"
 alias art="php artisan"
+
+function sites
+    set dir (/usr/bin/ls ~/Code/Sites/ | fzf | awk '{printf "Code/Sites/%s", $1}')
+    cd
+    cd $dir
+end
 
 # Starship
 starship init fish | source
