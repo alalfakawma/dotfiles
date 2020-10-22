@@ -27,8 +27,8 @@ set PATH $PATH /home/aseem/.cargo/bin
 
 bind "\e[25~;" ""
 
-# OMF THEME
-# set -g theme_display_git_on_first_line yes
+# fzf default options
+set -gx FZF_DEFAULT_OPTS "--layout=reverse"
 
 # Aliases
 alias gp="git push"
@@ -63,6 +63,7 @@ alias fo="fzf | xargs xdg-open"
 alias fv="fzf | xargs nvim"
 alias art="php artisan"
 
+# Open my sites directory in fzf and cd into it
 function sites
     set dir (/usr/bin/ls ~/Code/Sites/ | fzf | awk '{printf "Code/Sites/%s", $1}')
     cd
