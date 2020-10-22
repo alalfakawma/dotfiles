@@ -112,9 +112,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'mg979/vim-visual-multi'
-Plug 'nanotech/jellybeans.vim'
-Plug 'kristijanhusak/defx-git'
-Plug 'cormacrelf/vim-colors-github'
+Plug 'gruvbox-community/gruvbox'
 
 call plug#end()
 let g:vim_json_syntax_conceal = 0
@@ -122,18 +120,11 @@ let g:vim_json_syntax_conceal = 0
 " Enable true color
 set termguicolors
 
-" github colorscheme
-set background=dark
-let g:github_colors_soft = 1
+" gruvbox settings
+let g:gruvbox_italic = 1
 
 " Set colorscheme
-colorscheme github
-
-" github italic comments
-hi Comment gui=italic cterm=italic term=italic
-
-" Airline theme
-let g:airline_theme = "github"
+colorscheme gruvbox
 
 " Emmet vim
 let g:user_emmet_leader_key='<Leader>'
