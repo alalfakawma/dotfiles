@@ -65,9 +65,13 @@ alias art="php artisan"
 
 # Open my sites directory in fzf and cd into it
 function sites
-    set dir (/usr/bin/ls ~/Code/Sites/ | fzf | awk '{printf "Code/Sites/%s", $1}')
-    cd
-    cd $dir
+    set dir (/usr/bin/ls ~/Code/Sites/)
+    set dir . $dir
+    set dir (printf '%s\n' $dir | fzf | awk '{printf "Code/Sites/%s", $1}')
+    if test -n "$dir" 
+        cd
+        cd $dir
+    end
 end
 
 # Starship
