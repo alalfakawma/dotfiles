@@ -190,6 +190,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open applications on specific workspaces
 assign [class="firefox"] $ws1
+assign [class="Brave-browser"] $ws1
 assign [class="VirtualBox Manager"] $ws4
 assign [class="VirtualBox Machine"] $ws4
 assign [class="sun-awt-X11-XFramePeer"] $ws2
@@ -243,6 +244,7 @@ for_window [class="Epdfview"] floating enable
 for_window [class="Xarchiver"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="Gvim"] floating enable
+for_window [class="1Password"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
