@@ -8,6 +8,7 @@ set mouse=a
 set encoding=UTF-8
 syntax enable
 set cursorline
+set noswapfile
 set splitright
 set splitbelow
 set smartindent
