@@ -114,6 +114,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'bluz71/vim-moonfly-colors'
+Plug 'vim-test/vim-test'
 
 call plug#end()
 let g:vim_json_syntax_conceal = 0
@@ -198,4 +199,14 @@ let g:netrw_winsize = 15
 " for netrw Vertical split open
 set equalalways
 
+" Netrw open on the left
 nnoremap <C-b> :Lexplore<CR>
+
+" vim-test
+let test#php#phpunit#executable = 'php artisan test' " Use artisan
+
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
