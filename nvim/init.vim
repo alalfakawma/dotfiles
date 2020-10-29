@@ -113,7 +113,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'mg979/vim-visual-multi'
-Plug 'gruvbox-community/gruvbox'
+Plug 'bluz71/vim-moonfly-colors'
 
 call plug#end()
 let g:vim_json_syntax_conceal = 0
@@ -121,11 +121,8 @@ let g:vim_json_syntax_conceal = 0
 " Enable true color
 set termguicolors
 
-" gruvbox settings
-let g:gruvbox_italic = 1
-
 " Set colorscheme
-colorscheme gruvbox
+colorscheme moonfly
 
 " Emmet vim
 let g:user_emmet_leader_key='<Leader>'
