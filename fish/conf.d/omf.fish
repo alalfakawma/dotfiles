@@ -62,6 +62,7 @@ alias pwps="pass git push"
 alias fo="fzf | xargs xdg-open"
 alias fv="fzf | xargs nvim"
 alias art="php artisan"
+alias todos="grep --exclude={\*.{php_bak, php.bak, php_old},.tags} --exclude-dir={node_modules, vendor, metronic_assets, public, storage} -rn . -e 'TODO'"
 
 # Open my sites directory in fzf and cd into it
 function sites
