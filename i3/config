@@ -245,6 +245,7 @@ for_window [class="Xarchiver"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="Gvim"] floating enable
 for_window [class="1Password"] floating enable
+for_window [window_role="pop-up"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
