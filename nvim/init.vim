@@ -115,6 +115,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'bluz71/vim-moonfly-colors'
 Plug 'vim-test/vim-test'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 call plug#end()
 let g:vim_json_syntax_conceal = 0
@@ -210,3 +212,9 @@ nmap <silent> t<C-f> :TestFile<CR>
 nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
+
+" fugitive maps
+nmap <Leader>gd :Gdiffsplit<CR>
+nmap <Leader>gac :Gcommit .<CR>
+nmap <Leader>gcf :Gcommit %<CR>
+nmap <Leader>gs :Gstatus<CR>
