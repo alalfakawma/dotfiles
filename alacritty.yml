@@ -336,12 +336,6 @@ mouse:
     #log_level: Warn
     # Print all received window events.
     # print_events: false
-    # Colors (Base16 Default Dark)
-    # colors:
-    #     # Default colors
-    #     primary:
-    #         background: "0x181818"
-    #         foreground: "0xd8d8d8"
 
 # Colors (Base16 Default Dark)
 colors:
@@ -352,7 +346,7 @@ colors:
 
     # Colors the cursor will use if `custom_cursor_colors` is true
     cursor:
-        text: "0xd8d8d8"
+        text: "0x333333"
         cursor: "0xd8d8d8"
 
     # Normal colors
