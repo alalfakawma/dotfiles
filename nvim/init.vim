@@ -167,6 +167,9 @@ nnoremap <C-p> :GFiles<CR>
 nnoremap <A-p> :Files<CR>
 nnoremap <C-l> :GFiles?<CR>
 nnoremap <A-k> :Buffer<CR>
+nnoremap <Leader>rg :Rg<CR>
+nnoremap <Leader>l :Lines<CR>
+nnoremap <Leader>bl :BLines<CR>
 
 " Action maps
 let g:fzf_action = {
@@ -194,15 +197,14 @@ endfun
 " Netrw
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
+let g:netrw_browse_split = 2
 let g:netrw_altv = 1
-let g:netrw_winsize = 15
 
 " for netrw Vertical split open
 set equalalways
 
 " Netrw open on the left
-nnoremap <C-b> :Lexplore<CR>
+nnoremap <Leader>e :Explore<CR>
 
 " vim-test
 let test#php#phpunit#executable = 'php artisan test' " Use artisan
