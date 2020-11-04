@@ -25,6 +25,9 @@ set PATH $PATH $ANDROID_HOME/platform-tools
 set PATH $PATH $ANDROID_HOME/build-tools
 set PATH $PATH /home/aseem/.cargo/bin
 
+# Add yarn bins to PATH
+set PATH $PATH ~/.yarn/bin
+
 bind "\e[25~;" ""
 
 # fzf default options
