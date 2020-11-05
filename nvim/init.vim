@@ -7,7 +7,7 @@ set nu rnu
 set mouse=a
 set encoding=UTF-8
 syntax enable
-set cursorline
+" set cursorline
 set noswapfile
 set splitright
 set splitbelow
@@ -21,6 +21,9 @@ set smarttab
 set ignorecase smartcase
 set hls
 set backupcopy=yes
+
+" listchars
+set list listchars=eol:↲
 
 " Don't show mode 
 set noshowmode
