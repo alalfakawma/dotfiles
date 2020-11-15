@@ -120,6 +120,7 @@ Plug 'bluz71/vim-moonfly-colors'
 Plug 'vim-test/vim-test'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'ayu-theme/ayu-vim'
 
 call plug#end()
 let g:vim_json_syntax_conceal = 0
@@ -128,7 +129,7 @@ let g:vim_json_syntax_conceal = 0
 set termguicolors
 
 " Set colorscheme
-colorscheme moonfly
+colorscheme ayu
 
 " Emmet vim
 let g:user_emmet_leader_key='<Leader>'
