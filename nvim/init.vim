@@ -120,7 +120,7 @@ Plug 'bluz71/vim-moonfly-colors'
 Plug 'vim-test/vim-test'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
-Plug 'ayu-theme/ayu-vim'
+Plug 'joshdick/onedark.vim'
 
 call plug#end()
 let g:vim_json_syntax_conceal = 0
@@ -128,8 +128,11 @@ let g:vim_json_syntax_conceal = 0
 " Enable true color
 set termguicolors
 
+" Enable italics (onedark specific)
+let g:onedark_terminal_italics = 1
+
 " Set colorscheme
-colorscheme ayu
+colorscheme onedark
 
 " Emmet vim
 let g:user_emmet_leader_key='<Leader>'
