@@ -7,7 +7,7 @@ set nu rnu
 set mouse=a
 set encoding=UTF-8
 syntax enable
-" set cursorline
+set cursorline
 set noswapfile
 set splitright
 set splitbelow
@@ -61,6 +61,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+noremap <Leader>cd <Esc>:CocDiagnostics<CR>
 
 " Documentation
 nnoremap <silent> K :call <SID>show_documentation()<CR>
