@@ -25,6 +25,7 @@ set PATH $PATH $ANDROID_HOME/platform-tools
 set PATH $PATH $ANDROID_HOME/build-tools
 set PATH $PATH /home/aseem/.cargo/bin
 set PATH $PATH /usr/local/go/bin
+set PATH $PATH ~/.config/composer/vendor/bin
 
 # Add yarn bins to PATH
 set PATH $PATH ~/.yarn/bin

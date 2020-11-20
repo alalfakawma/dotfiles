@@ -228,3 +228,5 @@ nmap <Leader>gd :Gdiffsplit<CR>
 nmap <Leader>gac :Gcommit .<CR>
 nmap <Leader>gcf :Gcommit %<CR>
 nmap <Leader>gs :Gstatus<CR>
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
