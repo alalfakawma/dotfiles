@@ -87,11 +87,11 @@ let g:coc_global_extensions = [
     \ 'coc-snippets',
     \ 'coc-pairs',
     \ 'coc-prettier',
-    \ 'coc-phpls',
     \ 'coc-html',
     \ 'coc-css',
     \ ]
 
+" \ 'coc-phpls',
 " JSON stuff
 set conceallevel=1
 
@@ -228,5 +228,3 @@ nmap <Leader>gd :Gdiffsplit<CR>
 nmap <Leader>gac :Gcommit .<CR>
 nmap <Leader>gcf :Gcommit %<CR>
 nmap <Leader>gs :Gstatus<CR>
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
