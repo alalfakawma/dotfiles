@@ -171,8 +171,8 @@ map Q <Nop>
 autocmd FileType markdown let g:indentLine_enabled=0
 
 " FZF
-nnoremap <C-p> :GFiles<CR>
-nnoremap <A-p> :Files<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <A-p> :GFiles<CR>
 nnoremap <C-l> :GFiles?<CR>
 nnoremap <A-k> :Buffer<CR>
 nnoremap <Leader>rg :Rg<CR>
@@ -190,7 +190,7 @@ let g:fzf_action = {
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
 " Visual multi
-let g:VM_quit_after_leaving_insert_mode = 1
+" let g:VM_quit_after_leaving_insert_mode = 1
 
 fun! VM_Start()
   nmap <buffer> <C-C> <Esc>
