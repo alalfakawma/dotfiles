@@ -194,6 +194,7 @@ assign [class="Brave-browser"] $ws1
 assign [class="VirtualBox Manager"] $ws4
 assign [class="VirtualBox Machine"] $ws4
 assign [class="sun-awt-X11-XFramePeer"] $ws2
+assign [class="jetbrains-studio"] $ws2
 assign [class="processing-app-Base"] $ws2
 assign [class="code-oss"] $ws2
 assign [class="vlc"] $ws8
