@@ -21,6 +21,7 @@ set smarttab
 set ignorecase smartcase
 set hls
 set backupcopy=yes
+set so=5
 
 " listchars
 set list listchars=eol:↲
