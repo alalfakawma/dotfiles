@@ -126,6 +126,7 @@ Plug 'vim-test/vim-test'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'joshdick/onedark.vim'
+Plug 'StanAngeloff/php.vim'
 
 call plug#end()
 let g:vim_json_syntax_conceal = 0
