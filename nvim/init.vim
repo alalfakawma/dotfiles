@@ -96,7 +96,6 @@ let g:coc_global_extensions = [
     \ 'coc-css',
     \ ]
 
-" \ 'coc-phpls',
 " JSON stuff
 set conceallevel=1
 
