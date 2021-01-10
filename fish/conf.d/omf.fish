@@ -34,7 +34,7 @@ bind "\e[25~;" ""
 
 # fzf default options
 set -gx FZF_DEFAULT_OPTS "--layout=reverse"
-set -gx FZF_DEFAULT_COMMAND "find . -type d \( -name node_modules -o -name vendor -o -name public -o -name .git -o -name storage \) -prune -false -o -name '*'"
+set -gx FZF_DEFAULT_COMMAND "find . -type d \( -name node_modules -o -name vendor -o -name .git -o -name storage \) -prune -false -o -name '*'"
 
 # Aliases
 alias gp="git push"
