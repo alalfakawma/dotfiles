@@ -206,6 +206,7 @@ assign [class="dota2"] $ws7
 assign [class="Godot"] $ws2
 assign [class="Alacritty"] $ws3
 assign [class="discord"] $ws6
+assign [class="Tinkerwell"] $ws2
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
