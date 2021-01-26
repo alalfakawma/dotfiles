@@ -16,9 +16,8 @@ fi
 # Copy all scripts
 cp -r ~/Documents/Scripts/* $dotfilesFolder/Scripts
 
-# Alacritty
-# Copy the file
-cp ~/.config/alacritty/alacritty.yml $dotfilesFolder/alacritty.yml
+# Kitty
+cp ~/.config/kitty/kitty.conf $dotfilesFolder/kitty.conf
 
 # NeoVim
 if [ ! -d $dotfilesFolder/nvim ]; then

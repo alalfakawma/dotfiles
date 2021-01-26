@@ -27,7 +27,7 @@ font xft:JetBrains Mono 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -204,7 +204,7 @@ assign [class="Typora"] $ws4
 assign [class="Postman"] $ws4
 assign [class="dota2"] $ws7
 assign [class="Godot"] $ws2
-assign [class="Alacritty"] $ws3
+assign [class="kitty"] $ws3
 assign [class="discord"] $ws6
 assign [class="Tinkerwell"] $ws2
 
