@@ -207,6 +207,8 @@ assign [class="Godot"] $ws2
 assign [class="kitty"] $ws3
 assign [class="discord"] $ws6
 assign [class="Tinkerwell"] $ws2
+assign [class="GitKraken"] $ws2
+assign [class="TablePlus"] $ws2
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
