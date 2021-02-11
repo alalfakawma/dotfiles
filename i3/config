@@ -209,6 +209,7 @@ assign [class="discord"] $ws6
 assign [class="Tinkerwell"] $ws2
 assign [class="GitKraken"] $ws2
 assign [class="TablePlus"] $ws2
+assign [class="Toggl Desktop"] $ws2
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -251,9 +252,10 @@ for_window [class="Gvim"] floating enable
 for_window [class="1Password"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [class="TelegramDesktop"] floating enable
+for_window [class="Toggl Desktop"] floating enable move scratchpad
 
 # switch to workspace with urgent window automatically
-for_window [urgent=latest] focus
+# for_window [urgent=latest] focus
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

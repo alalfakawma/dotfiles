@@ -37,6 +37,9 @@ set shortmess+=c
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
+" CocCommand
+noremap <Leader>cc <Esc>:CocCommand<CR>
+
 " Coc-snippets expand
 " inoremap <silent><expr> <C-q> pumvisible() ? coc#_select_confirm() : 
 "                                            \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
