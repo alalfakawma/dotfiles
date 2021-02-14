@@ -137,6 +137,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'StanAngeloff/php.vim'
 
 call plug#end()
+
 let g:vim_json_syntax_conceal = 0
 
 " Enable true color
