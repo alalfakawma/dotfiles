@@ -135,6 +135,9 @@ Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'joshdick/onedark.vim'
 Plug 'StanAngeloff/php.vim'
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
@@ -242,3 +245,11 @@ nmap <Leader>gd :Gdiffsplit<CR>
 nmap <Leader>gac :Gcommit .<CR>
 nmap <Leader>gcf :Gcommit %<CR>
 nmap <Leader>gs :Gstatus<CR>
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+  },
+}
+EOF
