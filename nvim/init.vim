@@ -111,9 +111,9 @@ set conceallevel=1
 " Plugins ( Add plugins here )
 call plug#begin('~/.vim/plugged')
 
+Plug 'posva/vim-vue'
 Plug 'elzr/vim-json'
 Plug 'mattn/emmet-vim'
-Plug 'posva/vim-vue'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive' 
@@ -133,11 +133,10 @@ Plug 'mg979/vim-visual-multi'
 Plug 'vim-test/vim-test'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
-Plug 'joshdick/onedark.vim'
-Plug 'StanAngeloff/php.vim'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'bluz71/vim-moonfly-colors'
 
 call plug#end()
 
@@ -146,11 +145,8 @@ let g:vim_json_syntax_conceal = 0
 " Enable true color
 set termguicolors
 
-" Enable italics (onedark specific)
-let g:onedark_terminal_italics = 1
-
 " Set colorscheme
-colorscheme onedark
+colorscheme moonfly
 
 " Emmet vim
 let g:user_emmet_leader_key='<Leader>'
@@ -219,17 +215,8 @@ fun! VM_Exit()
   iunmap <buffer> <C-C>
 endfun
 
-" Netrw
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 2
-let g:netrw_altv = 1
-
-" for netrw Vertical split open
-set equalalways
-
-" Netrw open on the left
-nnoremap <Leader>e :Explore<CR>
+" nvimtree toggle
+nnoremap <Leader>e :NvimTreeToggle<CR>
 
 " vim-test
 let test#php#phpunit#executable = 'php artisan test' " Use artisan
@@ -251,5 +238,11 @@ require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
   },
+  indent = {
+    enable = true
+  },
 }
 EOF
+
+" PHP file indent issue fix
+au BufNewFile,BufRead,BufReadPost *.php set syntax=php
