@@ -202,9 +202,6 @@ let g:fzf_action = {
 " Floating layout FZF
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
-" Visual multi
-" let g:VM_quit_after_leaving_insert_mode = 1
-
 fun! VM_Start()
   nmap <buffer> <C-C> <Esc>
   imap <buffer> <C-C> <Esc>
@@ -234,7 +231,7 @@ nmap <Leader>gcf :Gcommit %<CR>
 nmap <Leader>gs :Gstatus<CR>
 
 lua <<EOF
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
   },
