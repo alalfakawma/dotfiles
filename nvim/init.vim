@@ -136,7 +136,7 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'bluz71/vim-moonfly-colors'
+Plug 'ChristianChiarulli/nvcode-color-schemes.vim'
 
 call plug#end()
 
@@ -146,7 +146,7 @@ let g:vim_json_syntax_conceal = 0
 set termguicolors
 
 " Set colorscheme
-colorscheme moonfly
+colorscheme onedark
 
 " Emmet vim
 let g:user_emmet_leader_key='<Leader>'
@@ -234,6 +234,7 @@ lua <<EOF
 require 'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
+    disable = { "blade" },
   },
   indent = {
     enable = true,
