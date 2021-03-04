@@ -19,7 +19,7 @@ configuration {
 	hide-scrollbar: true;
 	bw: 0;
     fullscreen: false;
-	terminal: "alacritty";
+	terminal: "kitty";
 	sidebar-mode: false;
 }
 
@@ -51,7 +51,7 @@ fg: #ffffff;
 
 * {
   background-color: #222222;
-  font: "JetBrains Mono 10";
+  font: "SFNS Display 11";
 }
 
 window {
