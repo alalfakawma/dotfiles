@@ -212,7 +212,7 @@ fun! VM_Exit()
   iunmap <buffer> <C-C>
 endfun
 
-" nvimtree toggle
+" nvimtree
 nnoremap <Leader>e :NvimTreeToggle<CR>
 
 " vim-test

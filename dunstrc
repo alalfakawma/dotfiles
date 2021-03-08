@@ -24,7 +24,7 @@
     separator_color = frame
     sort = yes
     idle_threshold = 120
-    font = JetBrains Mono 9
+    font = SF Pro Text 10
     line_height = 0
     markup = full
     format = "<span><b>%s %p</b></span>\n%b"
