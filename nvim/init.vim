@@ -111,13 +111,10 @@ set conceallevel=1
 " Plugins ( Add plugins here )
 call plug#begin('~/.vim/plugged')
 
-Plug 'posva/vim-vue'
 Plug 'elzr/vim-json'
-Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive' 
-Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'honza/vim-snippets'
@@ -131,8 +128,6 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'vim-test/vim-test'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -147,9 +142,6 @@ set termguicolors
 
 " Set colorscheme
 colorscheme onedark
-
-" Emmet vim
-let g:user_emmet_leader_key='<Leader>'
 
 " Vim-vue fix for some error which can happen which I forgot
 autocmd FileType vue syntax sync fromstart
