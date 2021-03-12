@@ -393,8 +393,6 @@ bindsym $mod+F12 exec ~/Documents/Scripts/displayPicker
 # bindsym --release Num_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsym $mod+comma exec ~/Documents/Scripts/emojiPicker
 bindsym $mod+F9 exec networkmanager_dmenu
-bindsym $mod+P exec ~/Documents/Scripts/getPassword
-bindsym $mod+M exec ~/Documents/Scripts/mouseEnableDisable
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

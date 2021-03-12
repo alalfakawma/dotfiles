@@ -84,8 +84,5 @@ function sites
     end
 end
 
-# Starship
-starship init fish | source
-
 # enable fzf
 fzf_key_bindings

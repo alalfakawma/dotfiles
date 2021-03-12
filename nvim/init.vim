@@ -132,6 +132,7 @@ Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'ChristianChiarulli/nvcode-color-schemes.vim'
+Plug 'posva/vim-vue'
 
 call plug#end()
 
@@ -147,8 +148,7 @@ colorscheme onedark
 autocmd FileType vue syntax sync fromstart
 
 " Save file
-noremap <Leader>w <Esc>:w<CR>
-inoremap <Leader>w <Esc>:w<CR>
+nnoremap <Leader>w <Esc>:w<CR>
 
 " Quit file
 nnoremap <Leader>q <Esc>:q<CR>
