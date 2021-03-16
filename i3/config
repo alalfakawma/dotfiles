@@ -76,6 +76,21 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # focus_follows_mouse no
 
+set $monitor_left "DVI-D-0"
+set $monitor_right "HDMI-0"
+
+# Set workspaces to monitor
+workspace $ws1 output $monitor_right
+workspace $ws2 output $monitor_right
+workspace $ws3 output $monitor_right
+workspace $ws4 output $monitor_right
+workspace $ws5 output $monitor_right
+workspace $ws6 output $monitor_left
+workspace $ws7 output $monitor_right
+workspace $ws8 output $monitor_left
+workspace $ws9 output $monitor_left
+workspace $ws10 output $monitor_left
+
 # Move container between monitors
 bindsym $mod+Shift+greater move workspace to output right
 bindsym $mod+Shift+less move workspace to output left
