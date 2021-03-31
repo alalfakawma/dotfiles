@@ -11,7 +11,7 @@ source $OMF_PATH/init.fish
 set EDITOR /usr/bin/nvim
 
 # Make firefox default browser
-set BROWSER /usr/bin/firefox
+set BROWSER /usr/bin/brave
 
 # Add local bin to path
 set PATH $PATH ~/.local/bin
