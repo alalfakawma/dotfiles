@@ -48,14 +48,8 @@ fi
 # Copy the file
 cp ~/.i3/i3blocks/.i3blocks.conf $dotfilesFolder/i3/i3blocks/i3blocks.conf
 
-# Fish
-# Create fish folder if it doesn't exist
-if [ ! -d $dotfilesFolder/fish ]; then
-	mkdir $dotfilesFolder/fish
-fi
-
-# Copy the files
-cp -r ~/.config/fish/conf.d/* $dotfilesFolder/fish/conf.d
+# zshrc
+cp ~/.zshrc $dotfilesFolder/zshrc
 
 # Tmux
 # Copy .tmux.conf
