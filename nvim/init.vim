@@ -124,8 +124,6 @@ Plug 'godlygeek/tabular'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'vim-test/vim-test'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
@@ -133,6 +131,9 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'ChristianChiarulli/nvcode-color-schemes.vim'
 Plug 'posva/vim-vue'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 call plug#end()
 
@@ -175,24 +176,11 @@ map Q <Nop>
 " Disable indentline in markdown
 autocmd FileType markdown let g:indentLine_enabled=0
 
-" FZF
-nnoremap <C-p> :Files<CR>
-nnoremap <A-p> :GFiles<CR>
-nnoremap <C-l> :GFiles?<CR>
-nnoremap <A-k> :Buffer<CR>
-nnoremap <Leader>rg :Rg<CR>
-nnoremap <Leader>l :Lines<CR>
-nnoremap <Leader>bl :BLines<CR>
-
-" Action maps
-let g:fzf_action = {
-      \ 'ctrl-t': 'tab split',
-      \ 'ctrl-s': 'split',
-      \ 'ctrl-v': 'vsplit'
-  \ }
-
-" Floating layout FZF
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+" Telescope
+nnoremap <C-p> :lua require('telescope.builtin').find_files({previewer = false})<cr>
+nnoremap <leader>rg <cmd>Telescope live_grep<cr>
+nnoremap <A-k> <cmd>Telescope buffers<cr>
+nnoremap <leader>ht <cmd>Telescope help_tags<cr>
 
 fun! VM_Start()
   nmap <buffer> <C-C> <Esc>
