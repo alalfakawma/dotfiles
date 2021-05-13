@@ -97,6 +97,7 @@ export PATH=~/.yarn/bin:/$ANDROID_HOME/build-tools:$PATH
 
 # Make nvim default editor
 export EDITOR=/usr/bin/nvim
+export GIT_EDITOR=/usr/bin/nvim
 
 # Make brave default browser
 export BROWSER=/usr/bin/brave
