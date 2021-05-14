@@ -269,6 +269,7 @@ for_window [class="1Password"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [class="TelegramDesktop"] floating enable
 for_window [class="Toggl Desktop"] floating enable move scratchpad
+for_window [title="Android Emulator - Pixel:5554"] floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
