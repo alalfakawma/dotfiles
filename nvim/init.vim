@@ -114,7 +114,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'elzr/vim-json'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive' 
 Plug 'pangloss/vim-javascript'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'honza/vim-snippets'
@@ -134,6 +133,7 @@ Plug 'posva/vim-vue'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'voldikss/vim-floaterm'
 
 call plug#end()
 
@@ -204,12 +204,6 @@ nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
 
-" fugitive maps
-nmap <Leader>gd :Gdiffsplit<CR>
-nmap <Leader>gac :Gcommit .<CR>
-nmap <Leader>gcf :Gcommit %<CR>
-nmap <Leader>gs :Gstatus<CR>
-
 lua <<EOF
 require 'nvim-treesitter.configs'.setup {
   highlight = {
@@ -225,3 +219,11 @@ EOF
 
 " PHP file indent issue fix
 au BufNewFile,BufRead,BufReadPost *.php set syntax=php
+
+" Floaterm
+nmap <Leader>fg :FloatermNew lazygit<CR>
+nmap <Leader>fd :FloatermNew lazydocker<CR>
+let g:floaterm_width=0.8
+let g:floaterm_height=0.8
+let g:floaterm_wintitle=0
+let g:floaterm_autoclose=1

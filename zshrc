@@ -154,3 +154,6 @@ function sites {
         cd $dir
     fi
 }
+
+# ZSH Config
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="bold,underline"
