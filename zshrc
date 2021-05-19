@@ -99,6 +99,9 @@ export PATH=~/.yarn/bin:/$ANDROID_HOME/build-tools:$PATH
 export EDITOR=/usr/bin/nvim
 export GIT_EDITOR=/usr/bin/nvim
 
+# Add composer bin to path
+export PATH=/home/aseem/.config/composer/vendor/bin:$PATH
+
 # Make brave default browser
 export BROWSER=/usr/bin/brave
 
