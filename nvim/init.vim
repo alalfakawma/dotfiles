@@ -163,7 +163,7 @@ map Q <Nop>
 autocmd FileType markdown let g:indentLine_enabled=0
 
 " Telescope
-nnoremap <C-p> <cmd>Telescope find_files theme=get_dropdown previewer=false<cr>
+nnoremap <C-p> <cmd>Telescope find_files theme=get_dropdown previewer=false winblend=10 width=100<cr>
 nnoremap <leader>rg <cmd>Telescope live_grep<cr>
 nnoremap <A-k> :lua require('telescope.builtin').buffers({show_all_buffers = true})<cr>
 
