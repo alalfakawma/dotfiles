@@ -160,3 +160,5 @@ function sites {
 
 # ZSH Config
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="bold,underline"
+
+eval "$(starship init zsh)"
