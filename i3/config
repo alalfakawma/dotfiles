@@ -223,7 +223,6 @@ assign [class="kitty"] $ws3
 assign [class="discord"] $ws6
 assign [class="Tinkerwell"] $ws2
 assign [class="GitKraken"] $ws2
-assign [class="TablePlus"] $ws2
 assign [class="Toggl Desktop"] $ws2
 assign [class="Slack"] $ws6
 
@@ -270,6 +269,7 @@ for_window [window_role="pop-up"] floating enable
 for_window [class="TelegramDesktop"] floating enable
 for_window [class="Toggl Desktop"] floating enable move scratchpad
 for_window [title="Android Emulator - Pixel:5554"] floating enable
+for_window [title="beekeeper-studio"] floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
