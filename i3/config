@@ -225,6 +225,7 @@ assign [class="Tinkerwell"] $ws2
 assign [class="GitKraken"] $ws2
 assign [class="Toggl Desktop"] $ws2
 assign [class="Slack"] $ws6
+assign [class="Clementine"] $ws6
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -270,6 +271,7 @@ for_window [class="TelegramDesktop"] floating enable
 for_window [class="Toggl Desktop"] floating enable move scratchpad
 for_window [title="Android Emulator - Pixel:5554"] floating enable
 for_window [title="beekeeper-studio"] floating enable
+for_window [title="Clementine"] floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
