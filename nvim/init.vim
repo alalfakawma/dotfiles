@@ -120,6 +120,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'voldikss/vim-floaterm'
+Plug 'folke/todo-comments.nvim'
 
 call plug#end()
 
@@ -212,3 +213,14 @@ let g:floaterm_width=0.8
 let g:floaterm_height=0.8
 let g:floaterm_wintitle=0
 let g:floaterm_autoclose=1
+
+" treesitter todo
+nnoremap <leader>td <cmd>TodoTelescope<cr>
+lua << EOF
+require("todo-comments").setup {
+    signs = false,
+    highlight = {
+        keyword = "bg"
+    }
+}
+EOF
