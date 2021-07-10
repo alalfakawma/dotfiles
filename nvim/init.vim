@@ -120,7 +120,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'voldikss/vim-floaterm'
-Plug 'folke/todo-comments.nvim'
+Plug 'folke/todo-comments.nvim', { 'branch': 'main' }
 
 call plug#end()
 
@@ -164,7 +164,7 @@ map Q <Nop>
 autocmd FileType markdown let g:indentLine_enabled=0
 
 " Telescope
-nnoremap <C-p> <cmd>Telescope find_files theme=get_dropdown previewer=false winblend=10 width=100<cr>
+nnoremap <C-p> <cmd>Telescope find_files theme=get_dropdown previewer=false winblend=10 layout_config.width=100<cr>
 nnoremap <leader>rg <cmd>Telescope live_grep<cr>
 nnoremap <A-k> :lua require('telescope.builtin').buffers({show_all_buffers = true})<cr>
 
