@@ -88,6 +88,9 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='nvim'
 # fi
 
+# VIMRC
+export VIMRC=~/.config/nvim/init.vim
+
 # Android
 export ANDROID_SDK_ROOT=/opt/android-sdk
 export ANDROID_HOME=/opt/android-sdk
