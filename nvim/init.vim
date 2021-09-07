@@ -194,11 +194,9 @@ lua <<EOF
 require 'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
-    disable = { "blade" },
   },
   indent = {
     enable = true,
-    disable = { "html" },
   },
 }
 EOF
