@@ -133,7 +133,7 @@ set termguicolors
 colorscheme onedark
 
 " Vim-vue fix for some error which can happen which I forgot
-autocmd FileType vue syntax sync fromstart
+" autocmd FileType vue syntax sync fromstart
 
 " Save file
 nnoremap <Leader>w <Esc>:w<CR>
@@ -194,6 +194,7 @@ lua <<EOF
 require 'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
+    disable = { "vue", "blade" }
   },
   indent = {
     enable = true,
@@ -207,6 +208,7 @@ au BufNewFile,BufRead,BufReadPost *.php set syntax=php
 " Floaterm
 nmap <Leader>fg :FloatermNew lazygit<CR>
 nmap <Leader>fd :FloatermNew lazydocker<CR>
+nmap <Leader>fn :FloatermNew<CR>
 let g:floaterm_width=0.8
 let g:floaterm_height=0.8
 let g:floaterm_wintitle=0
