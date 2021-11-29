@@ -107,14 +107,12 @@ Plug 'jwalton512/vim-blade'
 Plug 'Yggdroot/indentLine'
 Plug 'godlygeek/tabular'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'mg979/vim-visual-multi'
 Plug 'vim-test/vim-test'
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'ChristianChiarulli/nvcode-color-schemes.vim'
 Plug 'posva/vim-vue'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -276,13 +274,13 @@ require'nvim-tree'.setup {
 }
 EOF
 
+lua << END
+require'lualine'.setup()
+END
+
 lua << EOF
 require("github-theme").setup({
   theme_style = "dark",
   function_style = "italic",
-  sidebars = {"qf", "vista_kind", "terminal", "packer"},
-
-  -- Change the "hint" color to the "orange" color, and make the "error" color bright red
-  colors = {hint = "orange", error = "#ff0000"}
 })
 EOF
