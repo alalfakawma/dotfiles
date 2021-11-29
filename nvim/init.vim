@@ -121,6 +121,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'voldikss/vim-floaterm'
 Plug 'folke/todo-comments.nvim', { 'branch': 'main' }
+Plug 'projekt0n/github-nvim-theme', { 'branch': 'main' }
 
 call plug#end()
 
@@ -130,7 +131,7 @@ let g:vim_json_syntax_conceal = 0
 set termguicolors
 
 " Set colorscheme
-colorscheme onedark
+" colorscheme github_dark
 
 " Vim-vue fix for some error which can happen which I forgot
 " autocmd FileType vue syntax sync fromstart
@@ -273,4 +274,15 @@ require'nvim-tree'.setup {
     }
   }
 }
+EOF
+
+lua << EOF
+require("github-theme").setup({
+  theme_style = "dark",
+  function_style = "italic",
+  sidebars = {"qf", "vista_kind", "terminal", "packer"},
+
+  -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+  colors = {hint = "orange", error = "#ff0000"}
+})
 EOF
