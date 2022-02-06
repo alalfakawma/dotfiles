@@ -282,5 +282,6 @@ lua << EOF
 require("github-theme").setup({
   theme_style = "dark",
   function_style = "italic",
+  dark_sidebar = false,
 })
 EOF
