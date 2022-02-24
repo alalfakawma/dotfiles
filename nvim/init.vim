@@ -119,7 +119,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'voldikss/vim-floaterm'
 Plug 'folke/todo-comments.nvim', { 'branch': 'main' }
-Plug 'projekt0n/github-nvim-theme', { 'branch': 'main' }
+Plug 'sainnhe/sonokai'
 
 call plug#end()
 
@@ -129,7 +129,7 @@ let g:vim_json_syntax_conceal = 0
 set termguicolors
 
 " Set colorscheme
-" colorscheme github_dark
+colorscheme sonokai
 
 " Vim-vue fix for some error which can happen which I forgot
 " autocmd FileType vue syntax sync fromstart
@@ -277,11 +277,3 @@ EOF
 lua << END
 require'lualine'.setup()
 END
-
-lua << EOF
-require("github-theme").setup({
-  theme_style = "dark",
-  function_style = "italic",
-  dark_sidebar = false,
-})
-EOF
