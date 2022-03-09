@@ -33,7 +33,7 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id rofi -theme ~/.config/rofi/rainbow.rasi -lines 6 -show drun
+bindsym $mod+d exec --no-startup-id rofi -lines 6 -show drun
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
