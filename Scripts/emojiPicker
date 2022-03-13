@@ -4,7 +4,7 @@
 # Emojis file courtesy of Luke Smith: https://github.com/LukeSmithxyz/voidrice/blob/archi3/.config/emoji
 # Get emoji and list it out
 if [ -e ~/Documents/Scripts/scriptAssets/emojis ]; then
-    chosen=$(grep -v "#" ~/Documents/Scripts/scriptAssets/emojis | rofi -dmenu -theme ~/.config/rofi/rainbow.rasi -i -l 5)
+    chosen=$(grep -v "#" ~/Documents/Scripts/scriptAssets/emojis | rofi -dmenu -i -l 5)
 fi
 
 [ "$chosen" != "" ] || exit
