@@ -21,6 +21,7 @@ set ignorecase smartcase
 set hls
 set backupcopy=yes
 set so=5
+set cursorline
 
 " Don't show mode 
 set noshowmode
