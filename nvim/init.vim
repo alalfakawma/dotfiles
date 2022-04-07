@@ -121,8 +121,8 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'voldikss/vim-floaterm'
 Plug 'folke/todo-comments.nvim', { 'branch': 'main' }
 Plug 'sainnhe/sonokai'
-Plug 'rktjmp/lush.nvim'
-Plug 'metalelf0/jellybeans-nvim'
+Plug 'rktjmp/lush.nvim', { 'branch': 'main' }
+Plug 'metalelf0/jellybeans-nvim', { 'branch': 'main' }
 
 call plug#end()
 
