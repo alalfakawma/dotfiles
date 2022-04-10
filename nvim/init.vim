@@ -279,6 +279,6 @@ EOF
 
 lua << END
 require'lualine'.setup {
-    options = { theme = 'jellybeans' }
+    options = { theme = 'auto' }
 }
 END
