@@ -70,6 +70,7 @@ ZSH_THEME="robbyrussell"
 plugins=(
     git
     zsh-autosuggestions
+    docker
 )
 
 source $ZSH/oh-my-zsh.sh
