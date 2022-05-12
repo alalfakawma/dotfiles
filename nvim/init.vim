@@ -120,8 +120,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'voldikss/vim-floaterm'
 Plug 'folke/todo-comments.nvim', { 'branch': 'main' }
 Plug 'sainnhe/sonokai'
-Plug 'rktjmp/lush.nvim', { 'branch': 'main' }
-Plug 'metalelf0/jellybeans-nvim', { 'branch': 'main' }
+Plug 'Shatur/neovim-ayu'
 
 call plug#end()
 
@@ -131,7 +130,7 @@ let g:vim_json_syntax_conceal = 0
 set termguicolors
 
 " Set colorscheme
-colorscheme jellybeans-nvim
+colorscheme ayu-mirage
 
 " Vim-vue fix for some error which can happen which I forgot
 " autocmd FileType vue syntax sync fromstart
