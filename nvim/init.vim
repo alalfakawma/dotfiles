@@ -119,7 +119,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'voldikss/vim-floaterm'
 Plug 'folke/todo-comments.nvim', { 'branch': 'main' }
-Plug 'sainnhe/sonokai'
 Plug 'Shatur/neovim-ayu'
 
 call plug#end()
