@@ -42,11 +42,7 @@ noremap <Leader>cc <Esc>:CocCommand<CR>
 " CocAction
 noremap <Leader>ca <Esc>:CocAction<CR>
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+inoremap <silent><expr> <Tab> coc#pum#visible() ? coc#pum#confirm() : "\<C-y>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
