@@ -42,9 +42,12 @@ noremap <Leader>cc <Esc>:CocCommand<CR>
 " CocAction
 noremap <Leader>ca <Esc>:CocAction<CR>
 
-inoremap <silent><expr> <Tab> coc#pum#visible() ? coc#pum#confirm() : "\<C-y>"
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#confirm():
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
 
-function! s:check_back_space() abort
+function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
