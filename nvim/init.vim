@@ -119,6 +119,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'voldikss/vim-floaterm'
 Plug 'folke/todo-comments.nvim', { 'branch': 'main' }
 Plug 'Shatur/neovim-ayu'
+Plug 'catppuccin/nvim', {'as': 'catppuccin', 'branch': 'main'}
 
 call plug#end()
 
@@ -127,8 +128,11 @@ let g:vim_json_syntax_conceal = 0
 " Enable true color
 set termguicolors
 
+" Set flavour
+let g:catppuccin_flavour = "mocha"
+
 " Set colorscheme
-colorscheme ayu-mirage
+colorscheme catppuccin
 
 " Vim-vue fix for some error which can happen which I forgot
 " autocmd FileType vue syntax sync fromstart
