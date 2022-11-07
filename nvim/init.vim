@@ -118,7 +118,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'voldikss/vim-floaterm'
 Plug 'folke/todo-comments.nvim', { 'branch': 'main' }
-Plug 'Shatur/neovim-ayu'
 Plug 'catppuccin/nvim', {'as': 'catppuccin', 'branch': 'main'}
 
 call plug#end()
