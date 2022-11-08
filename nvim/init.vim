@@ -118,7 +118,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'voldikss/vim-floaterm'
 Plug 'folke/todo-comments.nvim', { 'branch': 'main' }
-Plug 'catppuccin/nvim', {'as': 'catppuccin', 'branch': 'main'}
+Plug 'rktjmp/lush.nvim', { 'branch': 'main' }
+Plug 'nocksock/bloop.nvim', { 'branch': 'main' }
 
 call plug#end()
 
@@ -127,11 +128,8 @@ let g:vim_json_syntax_conceal = 0
 " Enable true color
 set termguicolors
 
-" Set flavour
-let g:catppuccin_flavour = "mocha"
-
 " Set colorscheme
-colorscheme catppuccin
+colorscheme bloop
 
 " Vim-vue fix for some error which can happen which I forgot
 " autocmd FileType vue syntax sync fromstart
