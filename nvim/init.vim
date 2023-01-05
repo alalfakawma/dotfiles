@@ -118,8 +118,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'voldikss/vim-floaterm'
 Plug 'folke/todo-comments.nvim', { 'branch': 'main' }
-Plug 'rktjmp/lush.nvim', { 'branch': 'main' }
-Plug 'Mofiqul/dracula.nvim', { 'branch': 'main' }
+Plug 'shaunsingh/nord.nvim'
 
 call plug#end()
 
@@ -129,7 +128,7 @@ let g:vim_json_syntax_conceal = 0
 set termguicolors
 
 " Set colorscheme
-colorscheme dracula
+colorscheme nord
 
 " Vim-vue fix for some error which can happen which I forgot
 " autocmd FileType vue syntax sync fromstart
