@@ -24,7 +24,7 @@ if [ ! -d $dotfilesFolder/nvim ]; then
     mkdir $dotfilesFolder/nvim
 fi
 # Copy the file
-cp ~/.config/nvim/init.vim $dotfilesFolder/nvim/init.vim
+cp ~/.config/nvim/init.lua $dotfilesFolder/nvim/init.lua
 
 # Dunstrc
 # Copy the file
