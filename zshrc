@@ -90,7 +90,7 @@ source $ZSH/oh-my-zsh.sh
 # fi
 
 # VIMRC
-export VIMRC=~/.config/nvim/init.vim
+export VIMRC=~/.config/nvim/init.lua
 
 # Android
 export ANDROID_SDK_ROOT=/opt/android-sdk
