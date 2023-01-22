@@ -109,7 +109,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = vim.fn.expand '$MYVIMRC',
 })
 
-vim.api.nvim_create_autocmd('BufWrite', {
+vim.api.nvim_create_autocmd('BufWritePre', {
   command = 'lua vim.lsp.buf.format()'
 })
 
