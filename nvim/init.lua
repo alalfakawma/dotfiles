@@ -31,7 +31,7 @@ require('packer').startup(function(use)
 
   use 'posva/vim-vue' -- vue syntax
 
-  use { -- Autocompletion
+  use {               -- Autocompletion
     'hrsh7th/nvim-cmp',
     requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
   }
@@ -53,12 +53,12 @@ require('packer').startup(function(use)
     requires = {
       'nvim-tree/nvim-web-devicons', -- optional, for file icons
     },
-    tag = 'nightly' -- optional, updated every week. (see issue #1193)
+    tag = 'nightly'                  -- optional, updated every week. (see issue #1193)
   }
 
   use 'mg979/vim-visual-multi' -- multi cursor
 
-  use { -- Additional text objects via treesitter
+  use {                        -- Additional text objects via treesitter
     'nvim-treesitter/nvim-treesitter-textobjects',
     after = 'nvim-treesitter',
   }
@@ -66,12 +66,12 @@ require('packer').startup(function(use)
   -- Git related plugins
   use 'lewis6991/gitsigns.nvim'
 
-  use 'shaunsingh/nord.nvim' -- Theme
-  use 'nvim-lualine/lualine.nvim' -- Fancier statusline
+  use 'shaunsingh/nord.nvim'                -- Theme
+  use 'nvim-lualine/lualine.nvim'           -- Fancier statusline
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
-  use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
-  use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
-  use 'tpope/vim-surround' -- Change surrounding chars
+  use 'numToStr/Comment.nvim'               -- "gc" to comment visual regions/lines
+  use 'tpope/vim-sleuth'                    -- Detect tabstop and shiftwidth automatically
+  use 'tpope/vim-surround'                  -- Change surrounding chars
 
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
@@ -264,7 +264,7 @@ vim.keymap.set('n', '<leader>ft', require('nvim-tree').toggle, { desc = 'Open nv
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'lua', 'python', 'rust', 'typescript', 'help', 'vim', 'vue' },
+  ensure_installed = { 'typescript', 'help', 'vim', 'vue' },
 
   highlight = { enable = true, disable = { "vue" } },
   indent = { enable = true, disable = { 'python' } },
@@ -385,13 +385,6 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
-
-  sumneko_lua = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-    },
-  },
 }
 
 -- Setup neovim lua configuration
