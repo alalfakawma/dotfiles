@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/aseem/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -23,14 +23,13 @@ ZSH_THEME="robbyrussell"
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -45,8 +44,9 @@ ZSH_THEME="robbyrussell"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
-# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -62,6 +62,9 @@ ZSH_THEME="robbyrussell"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -70,50 +73,20 @@ ZSH_THEME="robbyrussell"
 plugins=(
     git
     zsh-autosuggestions
-    docker
+    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+export MYVIMRC="/home/lailen-dev/.config/nvim/init.lua"
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
-
-# VIMRC
-export VIMRC=~/.config/nvim/init.lua
-
-# Android
-export ANDROID_SDK_ROOT=/opt/android-sdk
-export ANDROID_HOME=/opt/android-sdk
-
-# Add to path
-export PATH=~/.yarn/bin:/$ANDROID_HOME/build-tools:$PATH
-
-# Make nvim default editor
-export EDITOR=/usr/bin/nvim
-export GIT_EDITOR=/usr/bin/nvim
-
-# Add composer bin to path
-export PATH=/home/aseem/.config/composer/vendor/bin:$PATH
-
-# Make brave default browser
 export BROWSER=/usr/bin/brave
 
-# fzf default options
-export FZF_DEFAULT_OPTS="--layout=reverse"
-export FZF_DEFAULT_COMMAND="find . -type d \( -name node_modules -o -name vendor -o -name .git -o -name storage \) -prune -false -o -name '*'"
+export EDITOR=/usr/bin/nvim
 
 # Aliases
+alias zshconfig="nvim ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias gp="git push"
 alias gs="git status"
 alias gc="git clone"
@@ -134,36 +107,59 @@ alias srczsh="source ~/.zshrc"
 alias zshconfig="nvim ~/.zshrc"
 alias o="xdg-open"
 alias v="nvim"
-alias i3conf="nvim /home/aseem/.i3/config"
+alias i3conf="nvim /home/lailen-dev/.config/i3/config"
 alias vimrc="nvim ~/.config/nvim/init.lua"
 alias kconf="v ~/.config/kitty/kitty.conf"
 alias hosts="sudo nvim /etc/hosts"
 alias t="tmux"
-alias la="exa -la --git"
-alias ll="exa -l --git"
-alias ls="exa -l --git"
-alias pwfo="pass git fetch origin"
-alias pwp="pass git pull"
-alias pwps="pass git push"
-alias fo="fzf | xargs xdg-open"
-alias fv="fzf | xargs nvim"
+alias la="exa --icons -la --git"
+alias ll="exa --icons -l --git"
+alias ls="exa --icons -l --git"
 alias art="php artisan"
-alias todos="grep --exclude={\*.{php_bak, php.bak, php_old},.tags} --exclude-dir={node_modules, vendor, metronic_assets, public, storage} -rn . -e 'TODO'"
 alias sshconf="nvim ~/.ssh/config"
 alias projects="cd ~/Code/Projects"
 alias lg="lazygit"
+alias cd="z"
 
 # Open my sites directory in fzf and cd into it
-function sites {
-    dir=$(/usr/bin/ls ~/Code/Sites/)
-    dir=$(printf '%s\n' $dir | fzf | awk '{printf "Code/Sites/%s", $1}')
+function p {
+    dir=$(/usr/bin/ls ~/Code/)
+    dir=$(printf '%s\n' $dir | fzf | awk '{printf "Code/%s", $1}')
     if [[ -n "$dir" ]]; then
         cd
         cd $dir
     fi
 }
 
+export LC_ALL=en_IN.UTF-8
+export LANG=en_IN.UTF-8
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Android
+export ANDROID_SDK_ROOT=/opt/android-sdk
+export ANDROID_HOME=/opt/android-sdk
+
+export PATH=$ANDROID_HOME/build-tools:$PATH
+
+# Add composer bin to path
+export PATH=/home/lailen-dev/.config/composer/vendor/bin:$PATH
+
+# Add cargo bin to path
+export PATH=/home/lailen-dev/.cargo/bin:$PATH
+
+source /usr/share/fzf/key-bindings.zsh
+
+export PHPENV_ROOT="/home/lailen-dev/.phpenv"
+if [ -d "${PHPENV_ROOT}" ]; then
+  export PATH="${PHPENV_ROOT}/bin:${PATH}"
+  eval "$(phpenv init -)"
+fi
+
 # ZSH Config
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="bold,underline"
 
+eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
