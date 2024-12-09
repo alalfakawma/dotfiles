@@ -29,7 +29,13 @@ require('packer').startup(function(use)
     },
   }
 
-  use 'posva/vim-vue' -- vue syntax
+  use {
+    'gelguy/wilder.nvim',
+  }
+
+  -- use 'posva/vim-vue' -- vue syntax
+
+  use 'onsails/lspkind.nvim'
 
   use {               -- Autocompletion
     'hrsh7th/nvim-cmp',
@@ -46,6 +52,21 @@ require('packer').startup(function(use)
       pcall(require('nvim-treesitter.install').update { with_sync = true })
     end,
   }
+
+  -- Lazygit
+  use({
+    "kdheepak/lazygit.nvim",
+    -- optional for floating window border decoration
+    requires = {
+      "nvim-lua/plenary.nvim",
+    },
+  })
+
+  -- Colortheme
+  use 'navarasu/onedark.nvim'
+  use 'scottmckendry/cyberdream.nvim'
+  use 'rktjmp/lush.nvim'
+  use 'kabouzeid/nvim-jellybeans'
 
   -- nvim tree
   use {
@@ -66,9 +87,11 @@ require('packer').startup(function(use)
   -- Git related plugins
   use 'lewis6991/gitsigns.nvim'
 
-  use 'shaunsingh/nord.nvim'                -- Theme
+  use {
+    'lukas-reineke/indent-blankline.nvim', -- Add indentation guides even on blank lines
+    main = "ibl"
+  }
   use 'nvim-lualine/lualine.nvim'           -- Fancier statusline
-  use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
   use 'numToStr/Comment.nvim'               -- "gc" to comment visual regions/lines
   use 'tpope/vim-sleuth'                    -- Detect tabstop and shiftwidth automatically
   use 'tpope/vim-surround'                  -- Change surrounding chars
@@ -111,9 +134,20 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = vim.fn.expand '$MYVIMRC',
 })
 
-vim.api.nvim_create_autocmd('BufWritePre', {
-  command = 'lua vim.lsp.buf.format()'
-})
+local wilder = require('wilder')
+wilder.setup({modes = {':', '/', '?'}})
+
+wilder.set_option('renderer', wilder.popupmenu_renderer(
+  wilder.popupmenu_palette_theme({
+    -- 'single', 'double', 'rounded' or 'solid'
+    -- can also be a list of 8 characters, see :h wilder#popupmenu_palette_theme() for more details
+    border = 'rounded',
+    max_height = '75%',      -- max height of the palette
+    min_height = 0,          -- set to the same as 'max_height' for a fixed height window
+    prompt_position = 'top', -- 'top' or 'bottom' to set the location of the prompt
+    reverse = 0,             -- set to 1 to reverse the order of the list, use in combination with 'prompt_position'
+  })
+))
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -141,9 +175,12 @@ vim.o.smartcase = true
 vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
+-- Set cursorline
+vim.o.cursorline = true
+
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme nord]]
+vim.cmd [[colorscheme jellybeans]]
 
 -- split to the right
 vim.cmd [[set splitright]]
@@ -169,8 +206,23 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- lazygit keymap
+vim.keymap.set('n', '<leader>lg', '<cmd>LazyGit<cr>')
+
+-- add filetype for blade files
+vim.filetype.add({
+    pattern = {
+        [".*%.blade%.php"] = "blade",
+    },
+})
+
 -- nvim tree
-require('nvim-tree').setup()
+require('nvim-tree').setup({
+  view = {
+    side = 'right',
+    width = 40,
+  }
+})
 
 -- autopairs setup
 require('nvim-autopairs').setup({
@@ -197,21 +249,38 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 require('lualine').setup {
   options = {
     icons_enabled = false,
-    theme = 'nord',
+    theme = 'cyberdream',
     component_separators = '|',
     section_separators = '',
   },
-}
+  sections = {
+    lualine_a = {
+      {
+        'filename',
+        file_status = true,      -- Displays file status (readonly status, modified status)
+        newfile_status = false,  -- Display new file status (new file means no write after created)
+        path = 3,                -- 0: Just the filename
+        -- 1: Relative path
+        -- 2: Absolute path
+        -- 3: Absolute path, with tilde as the home directory
+        -- 4: Filename and parent dir, with tilde as the home directory
 
--- Enable Comment.nvim
-require('Comment').setup()
+        shorting_target = 40,    -- Shortens path to leave 40 spaces in the window
+        -- for other components. (terrible name, any suggestions?)
+        symbols = {
+          modified = '[+]',      -- Text to show when the file is modified.
+          readonly = '[-]',      -- Text to show when the file is non-modifiable or readonly.
+          unnamed = '[No Name]', -- Text to show for unnamed buffers.
+          newfile = '[New]',     -- Text to show for newly created file before first write
+        }
+      }
+    }
+  },
+}
 
 -- Enable `lukas-reineke/indent-blankline.nvim`
 -- See `:help indent_blankline.txt`
-require('indent_blankline').setup {
-  char = '┊',
-  show_trailing_blankline_indent = false,
-}
+require('ibl').setup()
 
 -- Gitsigns
 -- See `:help gitsigns.txt`
@@ -225,6 +294,9 @@ require('gitsigns').setup {
   },
 }
 
+-- Enable Comment.nvim
+require('Comment').setup()
+
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
@@ -237,6 +309,15 @@ require('telescope').setup {
     },
   },
 }
+
+require('nvim-ts-autotag').setup({
+  opts = {
+    -- Defaults
+    enable_close = true, -- Auto close tags
+    enable_rename = true, -- Auto rename pairs of tags
+    enable_close_on_slash = false -- Auto close on trailing </
+  },
+})
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
@@ -253,7 +334,7 @@ vim.keymap.set('n', '<leader>/', function()
 end, { desc = '[/] Fuzzily search in current buffer]' })
 
 vim.keymap.set('n', '<C-p>', require('telescope.builtin').git_files, { desc = '[S]earch [F]iles' })
-vim.keymap.set('n', '<leader>af', require('telescope.builtin').git_files, { desc = '[S]earch [F]iles' })
+vim.keymap.set('n', '<leader>af', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
@@ -264,9 +345,9 @@ vim.keymap.set('n', '<leader>ft', require('nvim-tree').toggle, { desc = 'Open nv
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'typescript', 'help', 'vim', 'vue' },
+  ensure_installed = { 'vim' },
 
-  highlight = { enable = true, disable = { "vue" } },
+  highlight = { enable = true },
   indent = { enable = true, disable = { 'python' } },
   incremental_selection = {
     enable = true,
@@ -321,6 +402,16 @@ require('nvim-treesitter.configs').setup {
       },
     },
   },
+}
+
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.blade = {
+    install_info = {
+        url = "https://github.com/EmranMR/tree-sitter-blade",
+        files = { "src/parser.c" },
+        branch = "main",
+    },
+    filetype = "blade",
 }
 
 -- Diagnostic keymaps
@@ -379,13 +470,7 @@ end
 --
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
-local servers = {
-  -- clangd = {},
-  -- gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
-  -- tsserver = {},
-}
+local servers = { }
 
 -- Setup neovim lua configuration
 require('neodev').setup()
@@ -412,6 +497,16 @@ mason_lspconfig.setup_handlers {
       settings = servers[server_name],
     }
   end,
+}
+
+-- lspconfig volar
+require('lspconfig').volar.setup {
+  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+  init_options = {
+    vue = {
+      hybridMode = false,
+    },
+  },
 }
 
 -- Turn on lsp status information
@@ -454,11 +549,48 @@ cmp.setup {
       end
     end, { 'i', 's' }),
   },
+  window = {
+    completion = {
+      winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+      col_offset = 0,
+      side_padding = 0,
+      border = "rounded"
+    }
+  },
+  formatting = {
+    fields = { "kind", "abbr", "menu" },
+    format = function(entry, vim_item)
+      local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+      local strings = vim.split(kind.kind, "%s", { trimempty = true })
+      kind.kind = " " .. (strings[1] or "") .. " "
+      kind.menu = "    (" .. (strings[2] or "") .. ")"
+
+      return kind
+    end,
+  },
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
   },
 }
+
+require("cyberdream").setup({
+    -- Enable transparent background
+    transparent = true,
+
+    -- Enable italics comments
+    italic_comments = true,
+
+    -- Replace all fillchars with ' ' for the ultimate clean look
+    hide_fillchars = false,
+
+    -- Modern borderless telescope theme
+    borderless_telescope = true,
+
+    theme = {
+        variant = "false", -- use "light" for the light variant. Also accepts "auto" to set dark or light colors based on the current value of `vim.o.background`
+    },
+})
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
