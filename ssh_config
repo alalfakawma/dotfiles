@@ -1,0 +1,74 @@
+Host tbca-staging
+    HostName 3.110.162.161
+    User ubuntu
+    IdentityFile ~/Downloads/Telegram\ Desktop/LightsailDefaultKey-ap-south-1.pem
+
+Host msta-staging
+    HostName msta-api.lailendemo.com
+    User ubuntu
+    IdentityFile ~/Downloads/Telegram\ Desktop/LightsailDefaultKey-ap-south-1.pem
+
+Host south-prod
+    HostName aizawlsouth3.com
+    User ubuntu
+    IdentityFile ~/Downloads/Telegram\ Desktop/LightsailDefaultKey-ap-south-1.pem
+
+Host msta-prod
+    HostName vmalsawmtluanga.com
+    User ubuntu
+    IdentityFile ~/Downloads/Telegram\ Desktop/Lailen-EC2-Server-New.pem
+
+Host iris-prod
+    HostName iristrading.in
+    User ubuntu
+    IdentityFile ~/Downloads/Telegram\ Desktop/Lailen-EC2-Server-New.pem
+
+Host iris-new-prod
+    HostName 13.127.106.196
+    User ubuntu
+    IdentityFile ~/Downloads/Telegram\ Desktop/Lailen-EC2-Server-New.pem
+
+Host tbca-prod
+    HostName tbclalvenchhunga.online
+    User ubuntu
+    IdentityFile ~/Downloads/Telegram\ Desktop/Lailen-EC2-Server-New.pem
+
+Host tlangau-staging
+    HostName 13.233.78.209
+    User ubuntu
+    IdentityFile ~/Downloads/Telegram\ Desktop/LightsailDefaultKey-ap-south-1.pem
+
+Host tlangau-prod
+    HostName 13.202.16.114
+    User ubuntu
+    IdentityFile ~/Downloads/tlangau-aws-key.pem
+
+Host iris-staging
+    HostName iris.lailendemo.com
+    User ubuntu
+    IdentityFile ~/Downloads/Telegram\ Desktop/LightsailDefaultKey-ap-south-1.pem
+
+Host chs-staging
+    HostName chs.lailendemo.com
+    User ubuntu
+    IdentityFile ~/Downloads/Telegram\ Desktop/LightsailDefaultKey-ap-south-1.pem
+
+Host puc-prod
+    HostName pucollege.edu.in
+    User ubuntu
+    IdentityFile ~/Downloads/Telegram\ Desktop/Lailen-EC2-Server-New.pem
+
+Host mpr-staging
+    HostName 13.126.116.140
+    User ubuntu
+    IdentityFile ~/Downloads/PHE_MPR_STAGING.pem
+
+Host mpr-prod
+    HostName phedmpr.mizoram.gov.in
+    User ubuntu
+    IdentityFile ~/Downloads/Telegram\ Desktop/Lailen-EC2-Server-New.pem
+
+Host mart-prod
+    HostName martmiz.com
+    User ubuntu
+    IdentityFile ~/Downloads/Telegram\ Desktop/Lailen-EC2-Server-New.pem
