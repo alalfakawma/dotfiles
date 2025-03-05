@@ -62,11 +62,16 @@ require('packer').startup(function(use)
     },
   })
 
-  -- Colortheme
-  use 'navarasu/onedark.nvim'
+  -- Colorschemes
   use 'scottmckendry/cyberdream.nvim'
   use 'rktjmp/lush.nvim'
   use 'kabouzeid/nvim-jellybeans'
+  use 'EdenEast/nightfox.nvim'
+  use 'nyoom-engineering/oxocarbon.nvim'
+  use 'projekt0n/github-nvim-theme'
+
+  -- guess indent
+  use 'NMAC427/guess-indent.nvim'
 
   -- nvim tree
   use {
@@ -74,10 +79,12 @@ require('packer').startup(function(use)
     requires = {
       'nvim-tree/nvim-web-devicons', -- optional, for file icons
     },
-    tag = 'nightly'                  -- optional, updated every week. (see issue #1193)
+    -- tag = 'nightly'                  -- optional, updated every week. (see issue #1193)
   }
 
   use 'mg979/vim-visual-multi' -- multi cursor
+
+  use 'jwalton512/vim-blade' -- laravel blade
 
   use {                        -- Additional text objects via treesitter
     'nvim-treesitter/nvim-treesitter-textobjects',
@@ -179,6 +186,7 @@ vim.wo.signcolumn = 'yes'
 vim.o.cursorline = true
 
 -- Set colorscheme
+vim.opt.background = "dark"
 vim.o.termguicolors = true
 vim.cmd [[colorscheme jellybeans]]
 
@@ -301,6 +309,8 @@ require('Comment').setup()
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
   defaults = {
+    layout_strategy = 'horizontal',
+    layout_config = { height = 100, width = { padding = 1 } },
     mappings = {
       i = {
         ['<C-u>'] = false,
@@ -339,7 +349,7 @@ vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
-vim.keymap.set('n', '<leader>ft', require('nvim-tree').toggle, { desc = 'Open nvim tree' }) -- nvim tree
+vim.keymap.set('n', '<leader>ft', ':NvimTreeToggle<CR>', { desc = 'Open nvim tree' }) -- nvim tree
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
@@ -585,12 +595,15 @@ require("cyberdream").setup({
     hide_fillchars = false,
 
     -- Modern borderless telescope theme
-    borderless_telescope = true,
+    borderless_pickers = true,
 
-    theme = {
+    opts = {
         variant = "false", -- use "light" for the light variant. Also accepts "auto" to set dark or light colors based on the current value of `vim.o.background`
     },
 })
+
+-- guess indent,
+require('guess-indent').setup {}
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
