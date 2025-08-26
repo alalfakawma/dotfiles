@@ -9,6 +9,26 @@ end
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+vim.o.swapfile = false
+
+function EditLineFromLazygit(file_path, line)
+    local path = vim.fn.expand("%:p")
+    if path == file_path then
+        vim.cmd(tostring(line))
+    else
+        vim.cmd("e " .. file_path)
+        vim.cmd(tostring(line))
+    end
+end
+
+function EditFromLazygit(file_path)
+    local path = vim.fn.expand("%:p")
+    if path == file_path then
+        return
+    else
+        vim.cmd("e " .. file_path)
+    end
+end
 
 require('packer').startup(function(use)
   -- Package manager
@@ -37,10 +57,18 @@ require('packer').startup(function(use)
 
   use 'onsails/lspkind.nvim'
 
+  use 'folke/todo-comments.nvim' -- Highlight comments, todos, etc
+
+  -- lsp signatures
+  use 'ray-x/lsp_signature.nvim'
+
   use {               -- Autocompletion
     'hrsh7th/nvim-cmp',
     requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
   }
+
+  -- inline blame
+  use('braxtons12/blame_line.nvim')
 
   -- auto pairs
   use('windwp/nvim-autopairs')
@@ -56,19 +84,11 @@ require('packer').startup(function(use)
   -- Lazygit
   use({
     "kdheepak/lazygit.nvim",
-    -- optional for floating window border decoration
-    requires = {
-      "nvim-lua/plenary.nvim",
-    },
   })
 
   -- Colorschemes
-  use 'scottmckendry/cyberdream.nvim'
   use 'rktjmp/lush.nvim'
-  use 'kabouzeid/nvim-jellybeans'
-  use 'EdenEast/nightfox.nvim'
-  use 'nyoom-engineering/oxocarbon.nvim'
-  use 'projekt0n/github-nvim-theme'
+  use 'p00f/alabaster.nvim'
 
   -- guess indent
   use 'NMAC427/guess-indent.nvim'
@@ -151,7 +171,7 @@ wilder.set_option('renderer', wilder.popupmenu_renderer(
     border = 'rounded',
     max_height = '75%',      -- max height of the palette
     min_height = 0,          -- set to the same as 'max_height' for a fixed height window
-    prompt_position = 'top', -- 'top' or 'bottom' to set the location of the prompt
+    prompt_position = 'bottom', -- 'top' or 'bottom' to set the location of the prompt
     reverse = 0,             -- set to 1 to reverse the order of the list, use in combination with 'prompt_position'
   })
 ))
@@ -172,7 +192,7 @@ vim.o.mouse = 'a'
 vim.o.breakindent = true
 
 -- Save undo history
-vim.o.undofile = true
+vim.o.undofile = false
 
 -- Case insensitive searching UNLESS /C or capital in search
 vim.o.ignorecase = true
@@ -188,7 +208,7 @@ vim.o.cursorline = true
 -- Set colorscheme
 vim.opt.background = "dark"
 vim.o.termguicolors = true
-vim.cmd [[colorscheme jellybeans]]
+vim.cmd [[colorscheme alabaster]]
 
 -- split to the right
 vim.cmd [[set splitright]]
@@ -232,6 +252,9 @@ require('nvim-tree').setup({
   }
 })
 
+-- todo-comments
+require('todo-comments').setup()
+
 -- autopairs setup
 require('nvim-autopairs').setup({
   check_ts = true,
@@ -257,7 +280,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 require('lualine').setup {
   options = {
     icons_enabled = false,
-    theme = 'cyberdream',
     component_separators = '|',
     section_separators = '',
   },
@@ -447,6 +469,13 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
+  require "lsp_signature".on_attach({
+    bind = true,
+    handler_opts = {
+      border = "rounded"
+    }
+  }, bufnr)
+
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
@@ -490,34 +519,71 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Setup mason so it can manage external tooling
-require('mason').setup()
-
--- Ensure the servers above are installed
-local mason_lspconfig = require 'mason-lspconfig'
-
-mason_lspconfig.setup {
-  ensure_installed = vim.tbl_keys(servers),
+require("mason").setup()
+require("mason-lspconfig").setup {
+  ensure_installed = {
+    "vue_ls",
+    "vtsls",
+  }
 }
 
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
+-- Set up your LSP servers using lspconfig directly
+local lspconfig = require("lspconfig")
+
+-- Optionally get the list of mason-installed servers
+local servers = require("mason-lspconfig").get_installed_servers()
+
+-- Loop over installed servers and set them up
+for _, server in ipairs(servers) do
+  if server == "vue_ls" then
+    lspconfig.volar.setup {
       on_attach = on_attach,
-      settings = servers[server_name],
+      capabilities = capabilities,
+      init_options = {
+        vue = {
+          hybridMode = false,
+        }
+      },
+      filetypes = { "vue" },
+      settings = {
+        emmet = {
+          showExpandedAbbreviation = "never",
+        },
+        vue = {
+          format = {
+            enable = true,
+          },
+        },
+      },
     }
-  end,
-}
-
--- lspconfig volar
-require('lspconfig').volar.setup {
-  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-  init_options = {
-    vue = {
-      hybridMode = false,
-    },
-  },
-}
+  elseif server == "vtsls" then
+    lspconfig.vtsls.setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      filetypes = { "vue" },
+      settings = {
+        vtsls = {
+          autoUseWorkspaceTsdk = true,
+          tsserver = {
+            globalPlugins = {
+              {
+                name = "@vue/typescript-plugin",
+                location = vim.fn.stdpath("data") .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
+                languages = { "vue" },
+                enableForWorkspaceTypeScriptVersions = true,
+              },
+            },
+          },
+        },
+      },
+    }
+  else
+    lspconfig[server].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+  end
+end
 
 -- Turn on lsp status information
 require('fidget').setup()
@@ -584,26 +650,13 @@ cmp.setup {
   },
 }
 
-require("cyberdream").setup({
-    -- Enable transparent background
-    transparent = true,
-
-    -- Enable italics comments
-    italic_comments = true,
-
-    -- Replace all fillchars with ' ' for the ultimate clean look
-    hide_fillchars = false,
-
-    -- Modern borderless telescope theme
-    borderless_pickers = true,
-
-    opts = {
-        variant = "false", -- use "light" for the light variant. Also accepts "auto" to set dark or light colors based on the current value of `vim.o.background`
-    },
-})
-
 -- guess indent,
 require('guess-indent').setup {}
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldtext = "folded"
+vim.opt.foldlevel = 99
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
