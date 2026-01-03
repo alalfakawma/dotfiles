@@ -67,9 +67,6 @@ require('packer').startup(function(use)
     requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
   }
 
-  -- inline blame
-  use('braxtons12/blame_line.nvim')
-
   -- auto pairs
   use('windwp/nvim-autopairs')
   use('windwp/nvim-ts-autotag')
@@ -89,6 +86,7 @@ require('packer').startup(function(use)
   -- Colorschemes
   use 'rktjmp/lush.nvim'
   use 'p00f/alabaster.nvim'
+  use 'WTFox/jellybeans.nvim'
 
   -- guess indent
   use 'NMAC427/guess-indent.nvim'
@@ -109,6 +107,8 @@ require('packer').startup(function(use)
   use {                        -- Additional text objects via treesitter
     'nvim-treesitter/nvim-treesitter-textobjects',
     after = 'nvim-treesitter',
+    requires = 'nvim-treesitter/nvim-treesitter',
+    branch = 'main',
   }
 
   -- Git related plugins
@@ -124,7 +124,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-surround'                  -- Change surrounding chars
 
   -- Fuzzy Finder (files, lsp, etc)
-  use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
+  use { 'nvim-telescope/telescope.nvim', branch = 'master', requires = { 'nvim-lua/plenary.nvim' } }
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
@@ -208,7 +208,7 @@ vim.o.cursorline = true
 -- Set colorscheme
 vim.opt.background = "dark"
 vim.o.termguicolors = true
-vim.cmd [[colorscheme alabaster]]
+vim.cmd [[colorscheme jellybeans-muted]]
 
 -- split to the right
 vim.cmd [[set splitright]]
@@ -218,6 +218,10 @@ vim.cmd [[set rnu nu]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
+
+-- Set tabstop
+vim.opt.tabstop = 4;
+vim.opt.shiftwidth = 4;
 
 -- [[ Basic Keymaps ]]
 -- Set <space> as the leader key
@@ -375,12 +379,12 @@ vim.keymap.set('n', '<leader>ft', ':NvimTreeToggle<CR>', { desc = 'Open nvim tre
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
-require('nvim-treesitter.configs').setup {
+require('nvim-treesitter.config').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'vim' },
+  ensure_installed = { 'php', 'javascript' },
 
   highlight = { enable = true },
-  indent = { enable = true, disable = { 'python' } },
+  indent = { enable = true },
   incremental_selection = {
     enable = true,
     keymaps = {
@@ -434,16 +438,6 @@ require('nvim-treesitter.configs').setup {
       },
     },
   },
-}
-
-local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-parser_config.blade = {
-    install_info = {
-        url = "https://github.com/EmranMR/tree-sitter-blade",
-        files = { "src/parser.c" },
-        branch = "main",
-    },
-    filetype = "blade",
 }
 
 -- Diagnostic keymaps
@@ -522,67 +516,23 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 require("mason").setup()
 require("mason-lspconfig").setup {
   ensure_installed = {
-    "vue_ls",
-    "vtsls",
+    "intelephense",
   }
 }
 
 -- Set up your LSP servers using lspconfig directly
-local lspconfig = require("lspconfig")
+-- local lspconfig = require("lspconfig")
 
 -- Optionally get the list of mason-installed servers
 local servers = require("mason-lspconfig").get_installed_servers()
 
 -- Loop over installed servers and set them up
 for _, server in ipairs(servers) do
-  if server == "vue_ls" then
-    lspconfig.volar.setup {
-      on_attach = on_attach,
-      capabilities = capabilities,
-      init_options = {
-        vue = {
-          hybridMode = false,
-        }
-      },
-      filetypes = { "vue" },
-      settings = {
-        emmet = {
-          showExpandedAbbreviation = "never",
-        },
-        vue = {
-          format = {
-            enable = true,
-          },
-        },
-      },
-    }
-  elseif server == "vtsls" then
-    lspconfig.vtsls.setup {
-      on_attach = on_attach,
-      capabilities = capabilities,
-      filetypes = { "vue" },
-      settings = {
-        vtsls = {
-          autoUseWorkspaceTsdk = true,
-          tsserver = {
-            globalPlugins = {
-              {
-                name = "@vue/typescript-plugin",
-                location = vim.fn.stdpath("data") .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
-                languages = { "vue" },
-                enableForWorkspaceTypeScriptVersions = true,
-              },
-            },
-          },
-        },
-      },
-    }
-  else
-    lspconfig[server].setup {
-      on_attach = on_attach,
-      capabilities = capabilities,
-    }
-  end
+  vim.lsp.config(server, {
+    on_attach = on_attach,
+  })
+
+	vim.lsp.enable(server)
 end
 
 -- Turn on lsp status information
