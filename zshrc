@@ -78,7 +78,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-export MYVIMRC="/home/lailen-dev/.config/nvim/init.lua"
+export MYVIMRC="/home/aseem/.config/nvim/init.lua"
 
 export BROWSER=/usr/bin/brave
 
@@ -99,6 +99,7 @@ alias glo="git log --oneline"
 alias gac="git add .; git commit -m"
 alias mfs="php artisan migrate:fresh --seed"
 alias pas="php artisan serve"
+alias cpd="composer dev"
 alias nrd="npm run dev"
 alias nrw="npm run watch"
 alias nrs="npm run start"
@@ -107,7 +108,7 @@ alias srczsh="source ~/.zshrc"
 alias zshconfig="nvim ~/.zshrc"
 alias o="xdg-open"
 alias v="nvim"
-alias i3conf="nvim /home/lailen-dev/.config/i3/config"
+alias i3conf="nvim /home/aseem/.config/i3/config"
 alias vimrc="nvim ~/.config/nvim/init.lua"
 alias kconf="v ~/.config/kitty/kitty.conf"
 alias hosts="sudo nvim /etc/hosts"
@@ -120,6 +121,7 @@ alias sshconf="nvim ~/.ssh/config"
 alias projects="cd ~/Code/Projects"
 alias lg="lazygit"
 alias cd="z"
+alias oc="opencode"
 
 # Open my sites directory in fzf and cd into it
 function p {
@@ -142,17 +144,18 @@ export NVM_DIR="$HOME/.nvm"
 export ANDROID_SDK_ROOT=/opt/android-sdk
 export ANDROID_HOME=/opt/android-sdk
 
-export PATH=$ANDROID_HOME/build-tools:$PATH
+export PATH=/opt/android-sdk/emulator:$PATH
+export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
 
 # Add composer bin to path
-export PATH=/home/lailen-dev/.config/composer/vendor/bin:$PATH
+export PATH=/home/aseem/.config/composer/vendor/bin:$PATH
 
 # Add cargo bin to path
-export PATH=/home/lailen-dev/.cargo/bin:$PATH
+export PATH=/home/aseem/.cargo/bin:$PATH
 
 source /usr/share/fzf/key-bindings.zsh
 
-export PHPENV_ROOT="/home/lailen-dev/.phpenv"
+export PHPENV_ROOT="/home/aseem/.phpenv"
 if [ -d "${PHPENV_ROOT}" ]; then
   export PATH="${PHPENV_ROOT}/bin:${PATH}"
   eval "$(phpenv init -)"
@@ -163,3 +166,6 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="bold,underline"
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+
+# opencode
+export PATH=/home/aseem/.opencode/bin:$PATH
