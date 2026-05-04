@@ -87,6 +87,7 @@ require('packer').startup(function(use)
   use 'rktjmp/lush.nvim'
   use 'p00f/alabaster.nvim'
   use 'WTFox/jellybeans.nvim'
+  use 'oskarnurm/koda.nvim'
 
   -- guess indent
   use 'NMAC427/guess-indent.nvim'
@@ -208,7 +209,7 @@ vim.o.cursorline = true
 -- Set colorscheme
 vim.opt.background = "dark"
 vim.o.termguicolors = true
-vim.cmd [[colorscheme jellybeans-muted]]
+vim.cmd [[colorscheme koda]]
 
 -- split to the right
 vim.cmd [[set splitright]]
@@ -528,9 +529,16 @@ local servers = require("mason-lspconfig").get_installed_servers()
 
 -- Loop over installed servers and set them up
 for _, server in ipairs(servers) do
-  vim.lsp.config(server, {
-    on_attach = on_attach,
-  })
+  local config = { on_attach = on_attach }
+
+  if server == "emmet_ls" then
+    config.filetypes = { "html", "css", "blade" }
+    config.init_options = {
+      includeLanguages = { blade = "html" }
+    }
+  end
+
+  vim.lsp.config(server, config)
 
 	vim.lsp.enable(server)
 end
