@@ -589,6 +589,9 @@ cmp.setup {
       col_offset = 0,
       side_padding = 0,
       border = "rounded"
+    },
+    documentation = {
+      border = "rounded"
     }
   },
   formatting = {
@@ -615,6 +618,8 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldtext = "folded"
 vim.opt.foldlevel = 99
+
+vim.o.winborder = "rounded"
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
