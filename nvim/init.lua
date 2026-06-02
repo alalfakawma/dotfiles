@@ -57,6 +57,9 @@ require('packer').startup(function(use)
 
   use 'onsails/lspkind.nvim'
 
+  -- Formatting
+  use 'stevearc/conform.nvim'
+
   use 'folke/todo-comments.nvim' -- Highlight comments, todos, etc
 
   -- lsp signatures
@@ -328,6 +331,14 @@ require('gitsigns').setup {
     changedelete = { text = '~' },
   },
 }
+
+vim.keymap.set('n', '<leader>bl', function() 
+    require('gitsigns').blame_line({ full = true }) 
+end, { desc = 'Blame line' })
+
+vim.keymap.set('n', '<leader>bf', function() 
+    require('gitsigns').blame() 
+end, { desc = 'Blame file' })
 
 -- Enable Comment.nvim
 require('Comment').setup()
