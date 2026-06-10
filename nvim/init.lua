@@ -80,8 +80,6 @@ require('packer').startup(function(use)
   }
 
   -- Colorschemes
-  use 'rktjmp/lush.nvim'
-  use 'p00f/alabaster.nvim'
   use 'WTFox/jellybeans.nvim'
   use 'oskarnurm/koda.nvim'
 
@@ -147,32 +145,6 @@ if is_bootstrap then
   print '=================================='
   return
 end
-
--- Automatically source and re-compile packer whenever you save this init.lua
--- local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
--- vim.api.nvim_create_autocmd('BufWritePost', {
---   command = 'source <afile> | silent! LspStop | silent! LspStart | PackerCompile',
---   group = packer_group,
---   pattern = vim.fn.expand '$MYVIMRC',
--- })
-
--- local wilder = require('wilder')
--- wilder.setup({modes = {':', '/', '?'}})
---
--- wilder.set_option('renderer', wilder.popupmenu_renderer(
---   wilder.popupmenu_palette_theme({
---     -- 'single', 'double', 'rounded' or 'solid'
---     -- can also be a list of 8 characters, see :h wilder#popupmenu_palette_theme() for more details
---     border = 'rounded',
---     max_height = '75%',      -- max height of the palette
---     min_height = 0,          -- set to the same as 'max_height' for a fixed height window
---     prompt_position = 'bottom', -- 'top' or 'bottom' to set the location of the prompt
---     reverse = 0,             -- set to 1 to reverse the order of the list, use in combination with 'prompt_position'
---   })
--- ))
-
--- [[ Setting options ]]
--- See `:help vim.o`
 
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -279,7 +251,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 require('lualine').setup {
   options = {
     icons_enabled = false,
-    component_separators = '|',
+    component_separators = '',
     section_separators = '',
   },
   sections = {
