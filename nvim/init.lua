@@ -57,14 +57,6 @@ require('packer').startup(function(use)
 
   use 'folke/todo-comments.nvim' -- Highlight comments, todos, etc
 
-  -- lsp signatures
-  use 'ray-x/lsp_signature.nvim'
-
-  use { -- Autocompletion
-    'hrsh7th/nvim-cmp',
-    requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
-  }
-
   -- auto pairs
   use('windwp/nvim-autopairs')
   use('windwp/nvim-ts-autotag')
@@ -80,6 +72,12 @@ require('packer').startup(function(use)
   use({
     "kdheepak/lazygit.nvim",
   })
+
+  -- blink.cmp - autocompletion
+  use {
+    'saghen/blink.cmp',
+    tag = 'v1.*'
+  }
 
   -- Colorschemes
   use 'rktjmp/lush.nvim'
@@ -158,20 +156,20 @@ end
 --   pattern = vim.fn.expand '$MYVIMRC',
 -- })
 
-local wilder = require('wilder')
-wilder.setup({modes = {':', '/', '?'}})
-
-wilder.set_option('renderer', wilder.popupmenu_renderer(
-  wilder.popupmenu_palette_theme({
-    -- 'single', 'double', 'rounded' or 'solid'
-    -- can also be a list of 8 characters, see :h wilder#popupmenu_palette_theme() for more details
-    border = 'rounded',
-    max_height = '75%',      -- max height of the palette
-    min_height = 0,          -- set to the same as 'max_height' for a fixed height window
-    prompt_position = 'bottom', -- 'top' or 'bottom' to set the location of the prompt
-    reverse = 0,             -- set to 1 to reverse the order of the list, use in combination with 'prompt_position'
-  })
-))
+-- local wilder = require('wilder')
+-- wilder.setup({modes = {':', '/', '?'}})
+--
+-- wilder.set_option('renderer', wilder.popupmenu_renderer(
+--   wilder.popupmenu_palette_theme({
+--     -- 'single', 'double', 'rounded' or 'solid'
+--     -- can also be a list of 8 characters, see :h wilder#popupmenu_palette_theme() for more details
+--     border = 'rounded',
+--     max_height = '75%',      -- max height of the palette
+--     min_height = 0,          -- set to the same as 'max_height' for a fixed height window
+--     prompt_position = 'bottom', -- 'top' or 'bottom' to set the location of the prompt
+--     reverse = 0,             -- set to 1 to reverse the order of the list, use in combination with 'prompt_position'
+--   })
+-- ))
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -468,13 +466,6 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
-  require "lsp_signature".on_attach({
-    bind = true,
-    handler_opts = {
-      border = "rounded"
-    }
-  }, bufnr)
-
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
@@ -503,19 +494,8 @@ local on_attach = function(_, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 end
 
--- Enable the following language servers
---  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
---
---  Add any additional override configuration in the following tables. They will be passed to
---  the `settings` field of the server config. You must look up that documentation yourself.
-local servers = { }
-
 -- Setup neovim lua configuration
 require('neodev').setup()
---
--- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Setup mason so it can manage external tooling
 require("mason").setup()
@@ -524,9 +504,6 @@ require("mason-lspconfig").setup {
     "intelephense",
   }
 }
-
--- Set up your LSP servers using lspconfig directly
--- local lspconfig = require("lspconfig")
 
 -- Optionally get the list of mason-installed servers
 local servers = require("mason-lspconfig").get_installed_servers()
@@ -550,70 +527,36 @@ end
 -- Turn on lsp status information
 require('fidget').setup()
 
--- nvim-cmp setup
-local cmp = require 'cmp'
-local luasnip = require 'luasnip'
-
-cmp.setup {
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
+-- blink.cmp setup
+require('blink.cmp').setup({
+  keymap = {
+    preset = 'default',
+    ['<CR>'] = { 'accept', 'fallback' }, -- enter as accept or fallback
   },
-  mapping = cmp.mapping.preset.insert {
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
+  signature = {
+    enabled = true,
+    window = {
+      show_documentation = false,
     },
-    ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
   },
-  window = {
-    completion = {
-      winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
-      col_offset = 0,
-      side_padding = 0,
-      border = "rounded"
-    },
-    documentation = {
-      border = "rounded"
+  appearance = {
+    nerd_font_variant = 'mono'
+  },
+  completion = {
+    -- documentation = { auto_show = true },
+    menu = {
+      draw = {
+        columns = { { "label", "label_description", gap = 1 }, { "kind" } }
+      }
     }
   },
-  formatting = {
-    fields = { "kind", "abbr", "menu" },
-    format = function(entry, vim_item)
-      local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
-      local strings = vim.split(kind.kind, "%s", { trimempty = true })
-      kind.kind = " " .. (strings[1] or "") .. " "
-      kind.menu = "    (" .. (strings[2] or "") .. ")"
-
-      return kind
-    end,
-  },
   sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
+    default = { 'lsp', 'path', 'snippets', 'buffer' },
   },
-}
+  fuzzy = {
+    implementation = "prefer_rust_with_warning"
+  }
+})
 
 -- guess indent,
 require('guess-indent').setup {}
@@ -622,7 +565,6 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldtext = "folded"
 vim.opt.foldlevel = 99
-
 vim.o.winborder = "rounded"
 
 -- The line beneath this is called `modeline`. See `:help modeline`
