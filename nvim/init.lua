@@ -53,19 +53,14 @@ require('packer').startup(function(use)
     'gelguy/wilder.nvim',
   }
 
-  -- use 'posva/vim-vue' -- vue syntax
-
   use 'onsails/lspkind.nvim'
-
-  -- Formatting
-  use 'stevearc/conform.nvim'
 
   use 'folke/todo-comments.nvim' -- Highlight comments, todos, etc
 
   -- lsp signatures
   use 'ray-x/lsp_signature.nvim'
 
-  use {               -- Autocompletion
+  use { -- Autocompletion
     'hrsh7th/nvim-cmp',
     requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
   }
@@ -105,8 +100,6 @@ require('packer').startup(function(use)
   }
 
   use 'mg979/vim-visual-multi' -- multi cursor
-
-  use 'jwalton512/vim-blade' -- laravel blade
 
   use {                        -- Additional text objects via treesitter
     'nvim-treesitter/nvim-treesitter-textobjects',
