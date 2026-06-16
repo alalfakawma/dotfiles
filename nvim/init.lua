@@ -479,10 +479,11 @@ require("mason-lspconfig").setup {
 
 -- Optionally get the list of mason-installed servers
 local servers = require("mason-lspconfig").get_installed_servers()
+local blink_capabilities = require("blink.cmp").get_lsp_capabilities()
 
 -- Loop over installed servers and set them up
 for _, server in ipairs(servers) do
-  local config = { on_attach = on_attach }
+  local config = { on_attach = on_attach, capabilities = blink_capabilities }
 
   if server == "emmet_ls" then
     config.filetypes = { "html", "css", "blade" }
