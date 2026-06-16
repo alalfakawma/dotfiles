@@ -504,7 +504,7 @@ require('fidget').setup()
 require('blink.cmp').setup({
   keymap = {
     preset = 'default',
-    ['<CR>'] = { 'accept', 'fallback' }, -- enter as accept or fallback
+    ['<CR>'] = { 'select_and_accept', 'fallback' },
   },
   signature = {
     enabled = true,
